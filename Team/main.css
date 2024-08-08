@@ -40,12 +40,7 @@
 
 /* 1. base
 --------------------------------------------------------------------------------*/
-*{
-scroll-behavior: smooth;
-scrollbar-gutter: none;
-scrollbar-width: 0px;
 
-}
 a[disabled], input[disabled], button[disabled], textarea[disabled] {
     cursor: not-allowed !important;
     opacity: .5 !important;
