@@ -3702,7 +3702,7 @@ ul {
     background-image: url("../img/bg/testimonial.jpg");
     background-size: cover;
     background-position: top;
-}
+} 
 
 @media (max-width: 767px) {
     .founder .back {
