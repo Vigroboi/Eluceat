@@ -475,3 +475,23 @@
     });
 
 })(jQuery);
+
+
+/**
+     * Toggle content for the readmore 
+     */
+function toggleContent(contentId, buttonId) {
+    var fullContent = document.getElementById(contentId);
+    var readMoreBtn = document.getElementById(buttonId);
+  
+    if (fullContent.style.display === "none" || fullContent.style.display === "") {
+      // Show the full content
+      fullContent.style.display = "block";
+      readMoreBtn.textContent = "Read Less";
+    } else {
+      // Hide the full content
+      fullContent.style.display = "none";
+      readMoreBtn.textContent = "Read More";
+    }
+  }
+  
