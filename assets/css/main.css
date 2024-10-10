@@ -3699,7 +3699,7 @@ ul {
     top: 0;
     bottom: 0;
     width: 50%;
-    background-image: url("../img/bg/testimonial.jpg");
+    background-image: url("/assets/img/skill/Co-founder.jpg");
     background-size: cover;
     background-position: top;
 } 
