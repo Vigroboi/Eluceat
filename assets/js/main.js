@@ -188,6 +188,7 @@
     work();
 
     $('.portfolio').magnificPopup({
+        disableOn:700,
         delegate: 'a',
         type: 'image',
         closeOnContentClick: true,
@@ -204,7 +205,7 @@
     });
 
     $('.portfolio .popup-video').magnificPopup({
-        disableOn: 700,
+        disableOn:700,
         type: 'iframe',
         preloader: false,
         closeOnContentClick: true,
@@ -221,7 +222,7 @@
     });
 
     $('.video .popup-video').magnificPopup({
-        disableOn: 700,
+        
         type: 'iframe',
         preloader: false,
         closeOnContentClick: true,

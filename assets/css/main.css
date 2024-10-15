@@ -46,7 +46,7 @@ scrollbar-gutter: none;
 scrollbar-width: 0px;
 
 }
-a[disabled], input[disabled], button[disabled], textarea[disabled] {
+a[enabled], input[disabled], button[enabled], textarea[disabled] {
     cursor: not-allowed !important;
     opacity: .5 !important;
 }
@@ -579,9 +579,9 @@ product__number:not([type="text"]):focus:-ms-input-placeholder {
     color: #333;
 }
 
-input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="color"])[disabled],
-select2[disabled], textarea[disabled], select[disabled],
-product__number:not([type="text"])[disabled] {
+input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="color"])[enabled],
+select2[enabled], textarea[disabled], select[enabled],
+product__number:not([type="text"])[enabled] {
     opacity: .65;
     cursor: not-allowed;
 }
