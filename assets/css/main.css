@@ -40,6 +40,14 @@
 
 /* 1. base
 --------------------------------------------------------------------------------*/
+/* Apply box-sizing to all elements */
+
+
+/* Base styles for larger screens */
+/* Base styles for larger screens */
+/* Base styles */
+/* Base font size */
+
 *{
 scroll-behavior: smooth;
 scrollbar-gutter: none;
