@@ -249,8 +249,10 @@
     <!--vendors-->
     <script src="Team/js/jQuery.js"></script>
     <script src="Team/js/main.js"></script>
- <script>
+<script>
   jQuery(document).ready(function ($) {
+    let startX, endX;
+
     $(".slider-img").on("click", function () {
       const $this = $(this);
       const $sliderImages = $this.closest('.slider-images');
@@ -271,8 +273,48 @@
         $sliderImages.children().last().addClass("active");
       }
     });
+
+    // Handle touch events
+    $(".slider-container").on("touchstart", function (event) {
+      startX = event.originalEvent.touches[0].clientX;
+    });
+
+    $(".slider-container").on("touchmove", function (event) {
+      endX = event.originalEvent.touches[0].clientX;
+    });
+
+    $(".slider-container").on("touchend", function () {
+      const $active = $(".slider-img.active");
+      const $sliderImages = $active.closest('.slider-images');
+      let $next, $prev;
+
+      if (startX > endX + 50) {
+        // Swipe left
+        $next = $active.next('.slider-img');
+        if ($next.length) {
+          const nextIndex = $next.index();
+          const containerWidth = $('.slider-container').width();
+          const offset = nextIndex * containerWidth * 0.35; // Adjust this value to match the min-width
+          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+          $(".slider-img").removeClass("active");
+          $next.addClass("active");
+        }
+      } else if (startX < endX - 50) {
+        // Swipe right
+        $prev = $active.prev('.slider-img');
+        if ($prev.length) {
+          const prevIndex = $prev.index();
+          const containerWidth = $('.slider-container').width();
+          const offset = prevIndex * containerWidth * 0.35; // Adjust this value to match the min-width
+          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+          $(".slider-img").removeClass("active");
+          $prev.addClass("active");
+        }
+      }
+    });
   });
 </script>
+
 
 
   </body>
