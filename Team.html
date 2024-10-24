@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pinch-zoom/2.3.4/pinch-zoom.min.js"></script>
     <link rel="icon" type="image/jpeg" href="favicon/favicon.jpg">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -61,6 +62,19 @@
     color: white;
   }
 </style>
+<style>
+  .pinch-zoom {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .pinch-zoom img {
+    width: 100%;
+    height: auto;
+  }
+</style>
 
   </head>
   <body>
@@ -111,6 +125,7 @@
         <div class="slider-images">
           <div class="slider-img active">
             <img src="assets/img/Team/Boss Mbuyamba.png" alt="1" />
+          </pinch-zoom>
             <div class="details">
               <h2>Boss</h2>
               <p>Founder</p>
@@ -248,70 +263,76 @@
     <!--vendors-->
     <script src="Team/js/jQuery.js"></script>
     <script src="Team/js/main.js"></script>
-    <script>
-      jQuery(document).ready(function ($) {
-        let startX, endX;
+   <script>
+  jQuery(document).ready(function ($) {
+    let startX, endX;
 
-        $(".slider-img").on("click", function () {
-          const $this = $(this);
-          const $sliderImages = $this.closest('.slider-images');
-          const $next = $this.next('.slider-img');
+    $(".slider-img").on("click", function () {
+      const $this = $(this);
+      const $sliderImages = $this.closest('.slider-images');
+      const $next = $this.next('.slider-img');
 
-          if ($next.length) {
-            const nextIndex = $next.index();
-            const containerWidth = $('.slider-container').width();
-            const offset = nextIndex * containerWidth *0.35; // Adjust this value to match the min-width
-            $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-            $(".slider-img").removeClass("active");
-            $next.addClass("active");
-          } else {
-            // If no previous image, reset to the last image
-            const lastIndex = $sliderImages.children().length - 1;
-            $sliderImages.css('transform', 'translateX(-' + (lastIndex * 100) + 'px)');
-            $(".slider-img").removeClass("active");
-            $sliderImages.children().last().addClass("active");
-          }
-        });
+      if ($next.length) {
+        const nextIndex = $next.index();
+        const containerWidth = $('.slider-container').width();
+        const offset = nextIndex * containerWidth * 0.35; // Adjust this value to match the min-width
+        $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+        $(".slider-img").removeClass("active");
+        $next.addClass("active");
+      } else {
+        // If no previous image, reset to the last image
+        const lastIndex = $sliderImages.children().length - 1;
+        $sliderImages.css('transform', 'translateX(-' + (lastIndex * 100) + 'px)');
+        $(".slider-img").removeClass("active");
+        $sliderImages.children().last().addClass("active");
+      }
+    });
 
-        // Handle touch events
-        $(".slider-container").on("touchstart", function (event) {
-          startX = event.originalEvent.touches[0].clientX;
-        });
+    // Handle touch events
+    $(".slider-container").on("touchstart", function (event) {
+      startX = event.originalEvent.touches[0].clientX;
+    });
 
-        $(".slider-container").on("touchmove", function (event) {
-          endX = event.originalEvent.touches[0].clientX;
-        });
+    $(".slider-container").on("touchmove", function (event) {
+      endX = event.originalEvent.touches[0].clientX;
+    });
 
-        $(".slider-container").on("touchend", function () {
-          const $active = $(".slider-img.active");
-          const $sliderImages = $active.closest('.slider-images');
-          let $next, $prev;
+    $(".slider-container").on("touchend", function () {
+      const $active = $(".slider-img.active");
+      const $sliderImages = $active.closest('.slider-images');
+      let $next, $prev;
 
-          if (startX > endX + 50) {
-            // Swipe left
-            $next = $active.next('.slider-img');
-            if ($next.length) {
-              const nextIndex = $next.index();
-              const containerWidth = $('.slider-container').width();
-              const offset = nextIndex * containerWidth; // Adjust this value to match the min-width
-              $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-              $(".slider-img").removeClass("active");
-              $next.addClass("active");
-            }
-          } else if (startX < endX - 50) {
-            // Swipe right
-            $prev = $active.prev('.slider-img');
-            if ($prev.length) {
-              const prevIndex = $prev.index();
-              const containerWidth = $('.slider-container').width();
-              const offset = prevIndex * containerWidth; // Adjust this value to match the min-width
-              $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-              $(".slider-img").removeClass("active");
-              $prev.addClass("active");
-            }
-          }
-        });
-      });
-    </script>
+      if (startX > endX + 50) {
+        // Swipe left
+        $next = $active.next('.slider-img');
+        if ($next.length) {
+          const nextIndex = $next.index();
+          const containerWidth = $('.slider-container').width();
+          const offset = nextIndex * containerWidth; // Adjust this value to match the min-width
+          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+          $(".slider-img").removeClass("active");
+          $next.addClass("active");
+        }
+      } else if (startX < endX - 50) {
+        // Swipe right
+        $prev = $active.prev('.slider-img');
+        if ($prev.length) {
+          const prevIndex = $prev.index();
+          const containerWidth = $('.slider-container').width();
+          const offset = prevIndex * containerWidth; // Adjust this value to match the min-width
+          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+          $(".slider-img").removeClass("active");
+          $prev.addClass("active");
+        }
+      }
+    });
+
+    // Initialize pinch-zoom
+    $('pinch-zoom').each(function () {
+      new PinchZoom.default(this, {});
+    });
+  });
+</script>
+
   </body>
 </html>
