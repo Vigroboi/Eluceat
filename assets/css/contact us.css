@@ -2,10 +2,10 @@
     --color-background: #0d0d0d;
     --color-text-white: #e0e0e0;
     --color-placeholder: #a3a3a3;
-    --color-light-black: #000000;
-    --color-background-input-field: #000000;
-    --color-border-1: #38E078;
-    --color-actions: #38E078;
+    --color-light-black: #ffffff;
+    --color-background-input-field: hsl(0, 0%, 100%);
+    --color-border-1: #ffffffe1;
+    --color-actions: #2ac562;
     --color-hover: #2ac562;
     --color-focus: #1c9953;
 }
@@ -64,7 +64,7 @@ input[type="email"] {
 input[type="text"]:focus,
 input[type="email"]:focus {
     border-color: var(--color-actions);
-    box-shadow: 0px 0px 8px rgba(56, 224, 120, 0.5);
+    box-shadow: 0px 0px 8px rgb(255, 255, 255);
     border-radius: 12px;
     background-color: var(--color-focus);
 }

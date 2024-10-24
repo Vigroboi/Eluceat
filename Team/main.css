@@ -40,6 +40,26 @@
 
 /* 1. base
 --------------------------------------------------------------------------------*/
+.slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.slider-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-img {
+  min-width: 60%; /* Adjust this value to control the space between images */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-img.active {
+  transform: translateX(-80%);
+}
 
 a[disabled], input[disabled], button[disabled], textarea[disabled] {
     cursor: not-allowed !important;

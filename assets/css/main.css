@@ -47,6 +47,31 @@
 /* Base styles for larger screens */
 /* Base styles */
 /* Base font size */
+.slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.slider-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-img {
+  min-width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-img img {
+  display: block;
+  margin: 0 auto;
+}
+
+.slider-img.active {
+  transform: translateX(0);
+}
 
 *{
 scroll-behavior: smooth;
