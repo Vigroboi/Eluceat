@@ -60,7 +60,7 @@
 }
 
 .slider-img {
-  min-width: 100%;
+  min-width: 95%;
   transition: transform 0.5s ease-in-out;
 }
 

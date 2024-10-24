@@ -2,21 +2,12 @@
 <html lang="en">
   <head>
     <link rel="icon" type="image/jpeg" href="favicon/favicon.jpg">
-    <div class="container">
-      <div class="col-lg-6">
-        <!-- Content -->
-      </div>
-      <div class="col-lg-6">
-        <!-- Content -->
-      </div>
-    </div>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Our Team</title>
     <link rel="stylesheet" href="Team/style.css" />
     <link rel="stylesheet" href="assets/css/main.css"/>
     <link rel="stylesheet" href="assets/css/footer.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Fonts-->
@@ -32,28 +23,45 @@
     <!-- Font Awesome -->
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
-    <style>
-      .slider-container {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        height: auto;
-      }
+   <style>
+  .slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
 
-      .slider-images {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
+  .slider-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
 
-      .slider-img {
-        min-width: 80%;
-        transition: transform 0.5s ease-in-out;
-      }
+  .slider-img {
+    min-width: 78%;
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out;
+  }
 
-      .slider-img.active {
-        transform: translateX(-85%);
-      }
-    </style>
+  .slider-img img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .slider-img.active {
+    transform: translateX(-100%);
+  }
+
+  .slider-img img:hover {
+    transform: scale(1.1);
+  }
+
+  .details {
+    text-align: center;
+    color: white;
+  }
+</style>
+
   </head>
   <body>
     <div class="page-wrap" id="root">
@@ -103,7 +111,6 @@
         <div class="slider-images">
           <div class="slider-img active">
             <img src="assets/img/Team/Boss Mbuyamba.png" alt="1" />
-            <h1 style="color: white; size: 5px;">Boss</h1>
             <div class="details">
               <h2>Boss</h2>
               <p>Founder</p>
@@ -118,7 +125,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/lukho.jpg" alt="2" />
-            <h1 style="color: white; size: 5px;">Lukho</h1>
             <div class="details">
               <h2>Luko</h2>
               <p>Co-founder</p>
@@ -126,7 +132,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/JUNIOR.jpg" alt="3" />
-            <h1 style="color: white; size: 5px;">Moses</h1>
             <div class="details">
               <h2>Moses</h2>
               <p>Developer/Web developer</p>
@@ -134,7 +139,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/DIDI.jpg" alt="4" />
-            <h1 style="color: white; size: 5px;">Didi</h1>
             <div class="details">
               <h2>Didi</h2>
               <p>Developer/ Web Developer</p>
@@ -142,7 +146,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/Wesley1.jpg" alt="5" />
-            <h1 style="color: white; size: 5px;">Wesley</h1>
             <div class="details">
               <h2>Wesley</h2>
               <p>Trader</p>
@@ -150,7 +153,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/sean.jpg" alt="6" />
-            <h1 style="color: white; size: 5px;">SEAN</h1>
             <div class="details">
               <h2>SEAN</h2>
               <p>Socials</p>
@@ -158,7 +160,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/Anele.jpg" alt="7" />
-            <h1 style="color: white; size: 5px;">ANELE</h1>
             <div class="details">
               <h2>Anele</h2>
               <p>Seo/ Socials</p>
@@ -166,7 +167,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/THANDO.jpg" alt="9" />
-            <h1 style="color: white; size: 5px;">Thando</h1>
             <div class="details">
               <h2>Thando</h2>
               <p>Trader</p>
@@ -174,7 +174,6 @@
           </div>
           <div class="slider-img">
             <img src="assets/img/Team/Bless.jpg" alt="10" />
-            <h1 style="color: white; size: 5px;">BLESSING</h1>
             <div class="details">
               <h2>BLESSING</h2>
               <p>Trader</p>
@@ -249,73 +248,70 @@
     <!--vendors-->
     <script src="Team/js/jQuery.js"></script>
     <script src="Team/js/main.js"></script>
-<script>
-  jQuery(document).ready(function ($) {
-    let startX, endX;
+    <script>
+      jQuery(document).ready(function ($) {
+        let startX, endX;
 
-    $(".slider-img").on("click", function () {
-      const $this = $(this);
-      const $sliderImages = $this.closest('.slider-images');
-      const $next = $this.next('.slider-img');
+        $(".slider-img").on("click", function () {
+          const $this = $(this);
+          const $sliderImages = $this.closest('.slider-images');
+          const $next = $this.next('.slider-img');
 
-      if ($next.length) {
-        const nextIndex = $next.index();
-        const containerWidth = $('.slider-container').width();
-        const offset = nextIndex * containerWidth * 0.35; // Adjust this value to match the min-width
-        $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-        $(".slider-img").removeClass("active");
-        $next.addClass("active");
-      } else {
-        // If no previous image, reset to the last image
-        const lastIndex = $sliderImages.children().length - 1;
-        $sliderImages.css('transform', 'translateX(-' + (lastIndex * 100) + 'px)');
-        $(".slider-img").removeClass("active");
-        $sliderImages.children().last().addClass("active");
-      }
-    });
+          if ($next.length) {
+            const nextIndex = $next.index();
+            const containerWidth = $('.slider-container').width();
+            const offset = nextIndex * containerWidth *0.35; // Adjust this value to match the min-width
+            $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+            $(".slider-img").removeClass("active");
+            $next.addClass("active");
+          } else {
+            // If no previous image, reset to the last image
+            const lastIndex = $sliderImages.children().length - 1;
+            $sliderImages.css('transform', 'translateX(-' + (lastIndex * 100) + 'px)');
+            $(".slider-img").removeClass("active");
+            $sliderImages.children().last().addClass("active");
+          }
+        });
 
-    // Handle touch events
-    $(".slider-container").on("touchstart", function (event) {
-      startX = event.originalEvent.touches[0].clientX;
-    });
+        // Handle touch events
+        $(".slider-container").on("touchstart", function (event) {
+          startX = event.originalEvent.touches[0].clientX;
+        });
 
-    $(".slider-container").on("touchmove", function (event) {
-      endX = event.originalEvent.touches[0].clientX;
-    });
+        $(".slider-container").on("touchmove", function (event) {
+          endX = event.originalEvent.touches[0].clientX;
+        });
 
-    $(".slider-container").on("touchend", function () {
-      const $active = $(".slider-img.active");
-      const $sliderImages = $active.closest('.slider-images');
-      let $next, $prev;
+        $(".slider-container").on("touchend", function () {
+          const $active = $(".slider-img.active");
+          const $sliderImages = $active.closest('.slider-images');
+          let $next, $prev;
 
-      if (startX > endX + 50) {
-        // Swipe left
-        $next = $active.next('.slider-img');
-        if ($next.length) {
-          const nextIndex = $next.index();
-          const containerWidth = $('.slider-container').width();
-          const offset = nextIndex * containerWidth * 0.35; // Adjust this value to match the min-width
-          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-          $(".slider-img").removeClass("active");
-          $next.addClass("active");
-        }
-      } else if (startX < endX - 50) {
-        // Swipe right
-        $prev = $active.prev('.slider-img');
-        if ($prev.length) {
-          const prevIndex = $prev.index();
-          const containerWidth = $('.slider-container').width();
-          const offset = prevIndex * containerWidth * 0.35; // Adjust this value to match the min-width
-          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-          $(".slider-img").removeClass("active");
-          $prev.addClass("active");
-        }
-      }
-    });
-  });
-</script>
-
-
-
+          if (startX > endX + 50) {
+            // Swipe left
+            $next = $active.next('.slider-img');
+            if ($next.length) {
+              const nextIndex = $next.index();
+              const containerWidth = $('.slider-container').width();
+              const offset = nextIndex * containerWidth; // Adjust this value to match the min-width
+              $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+              $(".slider-img").removeClass("active");
+              $next.addClass("active");
+            }
+          } else if (startX < endX - 50) {
+            // Swipe right
+            $prev = $active.prev('.slider-img');
+            if ($prev.length) {
+              const prevIndex = $prev.index();
+              const containerWidth = $('.slider-container').width();
+              const offset = prevIndex * containerWidth; // Adjust this value to match the min-width
+              $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
+              $(".slider-img").removeClass("active");
+              $prev.addClass("active");
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
