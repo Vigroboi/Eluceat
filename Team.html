@@ -21,47 +21,59 @@
     <!-- App & fonts-->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Montserrat:400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
+   
     <!-- Font Awesome -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <!-- Google Font -->
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
-   <style>
-  .slider-container {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-
-  .slider-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .slider-img {
-    min-width: 78%;
-    box-sizing: border-box;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .slider-img img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .slider-img.active {
-    transform: translateX(-100%);
-  }
-
-  .slider-img img:hover {
-    transform: scale(1.1);
-  }
-
-  .details {
-    text-align: center;
-    color: white;
-  }
-</style>
+    <style>
+      /* Add the CSS here */
+      .slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+  
+      .slider-images {
+        display: flex;
+        transition: transform 2s ease-in-out;
+      }
+  
+      .slider-img {
+        position: relative;
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+  
+      .slider-img img {
+        width: 50%;
+        height: auto;
+        object-fit:fill;
+      }
+  
+      .details {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+      }
+  
+      .footer__social {
+        margin-top: 10px;
+      }
+  
+      .footer__social .social-icon {
+        margin-right: 10px;
+        color: white;
+      }
+    </style>
 <style>
   .pinch-zoom {
     display: block;
@@ -77,28 +89,28 @@
 </style>
 
   </head>
-  <body>
-    <div class="page-wrap" id="root">
-      <!-- header -->
+   <body>
+    <class="page-wrap" id="root">
+      <!-- header -->      
       <header class="header header--fixed">
         <div class="container">
           <div class="header__inner">
-            <div class="header__logo" style="color: #2ac562;"><a href="index.html" style="color: #2ac562;">Eluceat</a></div>
+            <div class="header__logo"><a href="index.html" style="color: #2ac562;">Eluceat</a></div>
             <div class="header__menu">
               <!-- onepage-nav -->
               <nav class="onepage-nav">
                 <!-- onepage-menu -->
                 <ul class="onepage-menu">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="index.html">About</a></li>
-                  <li><a href="index.html">Services</a></li>
-                  <li><a href="index.html">Work</a></li>
+                  <li class="current-menu-item"><a href="index.html">Home</a></li>
+                  <li><a href="#id-2">About</a></li>
+                  <li><a href="#id-3">Services</a></li>
+                  <li><a href="#id-4">Work</a></li>
                   <li><a href="Blog.html">Blog</a></li>
                   <li><a href="Contact.html">Contact</a></li>
                   <li><a href="Team.html">Team</a></li>
                 </ul>
                 <!-- onepage-menu -->
-                <div class="navbar-toggle">
+                  <div class="navbar-toggle">
                   <span></span><span></span><span></span>
                 </div>
               </nav>
@@ -108,94 +120,94 @@
         </div>
       </header>
       <!-- End / header -->
-
-      <!-- title -->
-      <section class="awe-section awe-text-center" style="background-blend-mode: color-burn;">
-        <div class="title">
-          <h2 class="title__title">
-            <span class="first"> Eluceat team</span><br /> Here are our Members
-            <p class="title__text">
-              This is the group of members who have helped the development of Eluceat up to what it has become today into the group of hard working people and our core members.
-            </p>
-          </h2>
-        </div>
-        <!-- End / title -->
-      </section>
-      <section class="slider-container">
-        <div class="slider-images">
-          <div class="slider-img active">
-            <img src="assets/img/Team/Boss Mbuyamba.png" alt="1" />
-          </pinch-zoom>
-            <div class="details">
-              <h2>Boss</h2>
-              <p>Founder</p>
-              <div class="footer__social">
-                <!-- social-icon -->
-                <a class="social-icon" href="#"><i class="fa-brands fa-facebook" style="size: 25px;"></i></a>
-                <a class="social-icon" href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a class="social-icon" href="#"><i class="fa-brands fa-google"></i></a>
-                <a class="social-icon" href="#"><i class="fa-brands fa-instagram"></i></a>
+       
+    
+      
+        <section class="awe-section awe-text-center" style="background-blend-mode: color-burn;">
+          <div class="title">
+            <h2 class="title__title">
+              <span class="first"> Eluceat team</span><br /> Here are our Members
+              <p class="title__text">
+                This is the group of members who have helped the development of Eluceat up to what it has become today into the group of hard working people and our core members.
+              </p>
+            </h2>
+          </div>
+          <!-- End / title -->
+        </section>
+        <section class="slider-container">
+          <div class="slider-images">
+            <div class="slider-img active">
+              <img src="assets/img/Team/Boss Mbuyamba.png" alt="1" />
+              <div class="details">
+                <h2>Boss</h2>
+                <p>Founder</p>
+                <div class="footer__social">
+                  <!-- social-icon -->
+                  <a class="social-icon" href="#"><i class="fa-brands fa-facebook" style="size: 25px;"></i></a>
+                  <a class="social-icon" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                  <a class="social-icon" href="#"><i class="fa-brands fa-google"></i></a>
+                  <a class="social-icon" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/lukho.jpg" alt="2" />
+              <div class="details">
+                <h2>Luko</h2>
+                <p>Co-founder</p>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/JUNIOR.jpg" alt="3" />
+              <div class="details">
+                <h2>Moses</h2>
+                <p>Developer/Web developer</p>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/DIDI.jpg" alt="4" />
+              <div class="details">
+                <h2>Didi</h2>
+                <p>Developer/ Web Developer</p>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/Wesley1.jpg" alt="5" />
+              <div class="details">
+                <h2>Wesley</h2>
+                <p>Trader</p>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/sean.jpg" alt="6" />
+              <div class="details">
+                <h2>SEAN</h2>
+                <p>Socials</p>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/Anele.jpg" alt="7" />
+              <div class="details">
+                <h2>Anele</h2>
+                <p>Seo/ Socials</p>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/THANDO.jpg" alt="9" />
+              <div class="details">
+                <h2>Thando</h2>
+                <p>Trader</p>
+              </div>
+            </div>
+            <div class="slider-img">
+              <img src="assets/img/Team/Bless.jpg" alt="10" />
+              <div class="details">
+                <h2>BLESSING</h2>
+                <p>Trader</p>
               </div>
             </div>
           </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/lukho.jpg" alt="2" />
-            <div class="details">
-              <h2>Luko</h2>
-              <p>Co-founder</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/JUNIOR.jpg" alt="3" />
-            <div class="details">
-              <h2>Moses</h2>
-              <p>Developer/Web developer</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/DIDI.jpg" alt="4" />
-            <div class="details">
-              <h2>Didi</h2>
-              <p>Developer/ Web Developer</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/Wesley1.jpg" alt="5" />
-            <div class="details">
-              <h2>Wesley</h2>
-              <p>Trader</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/sean.jpg" alt="6" />
-            <div class="details">
-              <h2>SEAN</h2>
-              <p>Socials</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/Anele.jpg" alt="7" />
-            <div class="details">
-              <h2>Anele</h2>
-              <p>Seo/ Socials</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/THANDO.jpg" alt="9" />
-            <div class="details">
-              <h2>Thando</h2>
-              <p>Trader</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="assets/img/Team/Bless.jpg" alt="10" />
-            <div class="details">
-              <h2>BLESSING</h2>
-              <p>Trader</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
       <!-- footer -->
       <footer class="footer">
@@ -263,76 +275,89 @@
     <!--vendors-->
     <script src="Team/js/jQuery.js"></script>
     <script src="Team/js/main.js"></script>
-   <script>
-  jQuery(document).ready(function ($) {
-    let startX, endX;
+  <!-- Add this script at the end of your HTML file or in a separate JS file -->
+<!-- Add this script at the end of your HTML file or in a separate JS file -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sliderImages = document.querySelector('.slider-images');
+    const slides = document.querySelectorAll('.slider-img');
+    let currentIndex = 0;
 
-    $(".slider-img").on("click", function () {
-      const $this = $(this);
-      const $sliderImages = $this.closest('.slider-images');
-      const $next = $this.next('.slider-img');
+    function showNextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      const offset = -currentIndex * 100;
+      sliderImages.style.transform = `translateX(${offset}%)`;
+    }
 
-      if ($next.length) {
-        const nextIndex = $next.index();
-        const containerWidth = $('.slider-container').width();
-        const offset = nextIndex * containerWidth * 0.35; // Adjust this value to match the min-width
-        $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-        $(".slider-img").removeClass("active");
-        $next.addClass("active");
-      } else {
-        // If no previous image, reset to the last image
-        const lastIndex = $sliderImages.children().length - 1;
-        $sliderImages.css('transform', 'translateX(-' + (lastIndex * 100) + 'px)');
-        $(".slider-img").removeClass("active");
-        $sliderImages.children().last().addClass("active");
-      }
-    });
-
-    // Handle touch events
-    $(".slider-container").on("touchstart", function (event) {
-      startX = event.originalEvent.touches[0].clientX;
-    });
-
-    $(".slider-container").on("touchmove", function (event) {
-      endX = event.originalEvent.touches[0].clientX;
-    });
-
-    $(".slider-container").on("touchend", function () {
-      const $active = $(".slider-img.active");
-      const $sliderImages = $active.closest('.slider-images');
-      let $next, $prev;
-
-      if (startX > endX + 50) {
-        // Swipe left
-        $next = $active.next('.slider-img');
-        if ($next.length) {
-          const nextIndex = $next.index();
-          const containerWidth = $('.slider-container').width();
-          const offset = nextIndex * containerWidth; // Adjust this value to match the min-width
-          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-          $(".slider-img").removeClass("active");
-          $next.addClass("active");
-        }
-      } else if (startX < endX - 50) {
-        // Swipe right
-        $prev = $active.prev('.slider-img');
-        if ($prev.length) {
-          const prevIndex = $prev.index();
-          const containerWidth = $('.slider-container').width();
-          const offset = prevIndex * containerWidth; // Adjust this value to match the min-width
-          $sliderImages.css('transform', 'translateX(-' + offset + 'px)');
-          $(".slider-img").removeClass("active");
-          $prev.addClass("active");
-        }
-      }
-    });
-
-    // Initialize pinch-zoom
-    $('pinch-zoom').each(function () {
-      new PinchZoom.default(this, {});
-    });
+    setInterval(showNextSlide, 3000); // Change slide every 3 seconds
   });
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+<script src="GSAP/esm/all.js"></script>
+<script src="../BDF/assets/js/gsap.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js">
+</script>
 
-  </body>
+<script
+  type="text/javascript"
+  src="assets/vendors/_jquery/jquery.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/isotope-layout/isotope.pkgd.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/jquery-one-page/jquery.nav.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/jquery.easing/jquery.easing.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/masonry-layout/masonry.pkgd.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/swiper/swiper.jquery.js"
+></script>
+<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/jquery.countTo/jquery.countTo.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/tabs/awe-tabs.js"
+></script>
+<script type="text/javascript" src="assets/vendors/wow/wow.js"></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/jquery.appear/jquery.appear.js"
+></script>
+<script
+  type="text/javascript"
+  src="assets/vendors/waterpipe/waterpipe.js"
+></script>
+<!-- App-->
+<script type="text/javascript" src="assets/js/main.js"></script>
+</body>
 </html>
