@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
    
     <!-- Google Font -->
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -36,7 +35,7 @@
                     <div class="header__menu">
                         <nav class="onepage-nav">
                             <ul class="onepage-menu">
-                                <a href="index.html">Home</a></li>
+                                <li><a href="index.html">Home</a></li>
                                 <li><a href="#id-2">About</a></li>
                                 <li><a href="#id-3">Services</a></li>
                                 <li><a href="#id-4">Work</a></li>
@@ -54,8 +53,8 @@
             </div>
         </header>
         
-        <section id="services" style="background-color: black;"">
-            <h2 style="color: white">Questions & answers </h2>
+        <section id="services" style="background-color: black;">
+            <h2 style="color: #2ac562;">Questions & answers </h2>
             <p style="color: white">We are thrilled to announce the range of services we offer to 
                 <p style="color: white;">your needs! Whether you're looking for assistance with website development,
                     <p style="color:white;"> web design or Marketing, we have dedicated team members ready to help you achieve your goals.</p>
@@ -67,10 +66,10 @@
             </p>
         
         </section>
-        <section id="contact" style="background-image: url(assets/img/bg/ben.jpg);">
-            <h2 style="color:white">Get In Touch</h2>
-            <form class="contact-container" style="outline: white; border-color: white ;">
-                <h1 style="color: black;">Contact Us</h1>
+        <section id="contact" style="background-color:black; padding: 40px;">
+            <h2 style="color: #2ac562; text-align: center;">Get In Touch</h2>
+            <form id="contact-form" class="contact-container" style="max-width: 600px; margin: auto;">
+                <h1 style="color: white;">Contact Us</h1>
                 <div class="input-name">
                     <input type="text" class="first-name" name="fName" placeholder="First Name" required>
                     <input type="text" class="last-name" name="lName" placeholder="Last Name" required>
@@ -82,24 +81,36 @@
                     <input type="text" class="subject" name="subject" placeholder="Subject" required>
                 </div>
                 <div class="input-message">
-                    <input type="text" class="message" name="message" placeholder="Message" required>
+                    <textarea class="message" name="message" placeholder="Message" required></textarea>
                 </div>
-                <buttonbutton type="submit" class="btn btn-submit" style="background-color: black;">Submit</button>
-                <div class="or-text">Or contact us on social media</div>
-                
+                <button type="submit" class="btn btn-submit" onclick="handleSubmit(event, 'whatsapp')">Submit via WhatsApp</button>
+                <button type="button" class="btn btn-submit" onclick="handleSubmit(event, 'email')">Submit via Email</button>
+                <div class="or-text" style="color: white; text-align: center;">Or contact us on social media</div>
+            </form>
         </section>
-        <section id="contacts">
-            <h2 style="color: #2ac562;">Our Advisors</h2>
+        <section id="contacts" style="background-color:black; padding: 40px;">
+            <h2 style="color: #2ac562; text-align: center;">Our Advisors</h2>
             <div class="contacts-list">
                 <div class="contact-item">
                     <div class="contact-info">
-                        <img src="assets/img/skill/Co-founder.jpg" alt="Contact 1">
+                        <img src="assets/img/Team/didi2.jpg" alt="Contact 1">
                         <h3 style="color: #2ac562;">Diditle Mokgoro</h3>
                         <p>Email: diditle.mokgoro@eluceat.com</p>
                         <p>Phone: +27750097755 </p>
                     </div>
                     <div class="contact-bg" style="background-image:url(assets/img/contact/bg11.jpg)"></div>
                 </div>
+                <section>
+                <div class="contact-item">
+                    <div class="contact-info">
+                        <img src="assets/img/contact/bless.jpg" alt="Contact 8">
+                        <h3 style="color: #2ac562;">Blessing Ngozo</h3>
+                        <p>Email: blessing.ngozo@eluceat.com</p>
+                        <p>Phone: +27750097755</p>
+                    </div>
+                    <div class="contact-bg" style="background-image: url(assets/img/contact/bg12.jpg);"></div>
+                </div>
+            </section>
             <section>
                 <div class="contact-item">
                     <div class="contact-info">
@@ -133,14 +144,14 @@
                     <div class="contact-bg" style="background-image: url(assets/img/contact/bg15.jpg);"></div>
                 </div>
             </section>
-          
+           
             <section>
                 <div class="contact-item">
                     <div class="contact-info">
                         <img src="assets/img/Team/THANDO.jpg" alt="Contact 7">
                         <h3 style="color: #2ac562;">Thando</h3>
                         <p>Email: info@eluceat.com</p>
-                        <p>Phone:+27750097755</p>
+                        <p>Phone: +27750097755</p>
                     </div>
                     <div class="contact-bg" style="background-image: url(assets/img/contact/bg17.jpg);"></div>
                 </div>
@@ -148,10 +159,10 @@
             <section>
                 <div class="contact-item">
                     <div class="contact-info">
-                        <img src="assets/img/contact/bless.jpg" alt="Contact 8">
-                        <h3 style="color: #2ac562;">Blessing Ngozo</h3>
-                        <p>Email: blessing.ngozo@eluceat.com</p>
-                        <p>Phone: +27750097755</p>
+                      <img src="assets/img/contact/juni.jpg" alt="Contact 2">
+                      <h3 style="color: #2ac562;">Junior Mosses</h3>
+                      <p>Email: info@eluceat.com</p>
+                      <p>Phone: +27750097755</p>
                     </div>
                     <div class="contact-bg" style="background-image: url(assets/img/Randoms/pexels-imustbedead-10852561.jpg);"></div>
                 </div>
@@ -161,40 +172,61 @@
     <p> We encourage you to connect directly with the right individual for your needs,  
        <p> as they will provide the most relevant information and support. 
         <p> Your satisfaction is our priority, 
-            <p>  and we’re here to ensure you receive the best possible service.
+            <p>  and we're here to ensure you receive the best possible service.
 
        <p> Thank you, and we look forward to working with you!<p> 
     <script src="scripts.js"></script>
     <style>
         .contacts-list {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
         .contact-item {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            text-align: left;
-            gap: 20px;
-        }
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            text-align: left;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
         }
         .contact-item img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
         }
-        .contact-bg {
-            width: 1500px;
-            height: 1000px;
-            background-size: cover;
-            background-position: right;
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background-color: #121212;
+        }
+        .contact-container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .input-name, .input-email, .input-subject, .input-message {
+            margin-bottom: 15px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+            color: white;
+        }
+        button.btn-submit {
+            background-color: #2ac562;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button.btn-submit:hover {
+            background-color: #24a54e;
         }
     </style>
     
@@ -255,7 +287,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
     <script src="GSAP/esm/all.js"></script>
     <script src="../BDF/assets/js/gsap.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js">
+ <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js">
     </script>
     
     <script
@@ -318,6 +350,28 @@
     ></script>
     <!-- App-->
     <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        async function handleSubmit(event, method) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target.form);
+            const firstName = formData.get('fName');
+            const lastName = formData.get('lName');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            if (method === 'whatsapp') {
+                const whatsappMessage = `Name: ${firstName} ${lastName}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+                const whatsappUrl = `https://wa.me/27750097755?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappUrl, '_blank');
+            } else if (method === 'email') {
+                const mailtoLink = `mailto:eluceat.service@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`)}`;
+                window.location.href = mailtoLink;
+            }
+        }
+
+        document.querySelector('.btn-submit').addEventListener('click', handleSubmit);
+    </script>
   </body>
-</body>
 </html>
