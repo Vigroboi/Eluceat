@@ -475,6 +475,19 @@
         });
     });
 
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const menu = document.querySelector('.onepage-menu');
+        
+        if (navbarToggle && menu) {
+            navbarToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menu.classList.toggle('active');
+            });
+        }
+    });
+
 })(jQuery);
 
 

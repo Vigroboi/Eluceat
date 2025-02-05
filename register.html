@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+    <!-- Vendors-->
+    <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/wow/animate.css">
+    <!-- App & fonts-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Montserrat:400,700">
+    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/contact us.css">
+
+
+   
+     <!-- Font Awesome -->
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+   <!-- Google Font -->
+   <link
+     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+     rel="stylesheet" />
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header class="header header--fixed">
+        <div class="container">
+          <div class="header__inner">
+            <div class="header__logo"><a href="index.html" style="color: forestgreen;">Eluceat</a></div>
+            <div class="header__menu">
+              <!-- onepage-nav -->
+              <nav class="onepage-nav">
+                <!-- onepage-menu -->
+                <ul class="onepage-menu">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="#id-2">About</a></li>
+                  <li><a href="#id-3">Services</a></li>
+                  <li><a href="#id-4">Work</a></li>
+                  <li><a href="pricing.html">Pricing</a></li>
+                  <li><a href="Contact.html">Contact</a></li>
+                  <li><a href="Team.html">Team</a></li>
+                </ul>
+                <!-- onepage-menu -->
+
+                <div class="navbar-toggle">
+                  <span></span><span></span><span></span>
+                </div>
+              </nav>
+              <!-- End / onepage-nav -->
+            </div>
+          </div>
+        </div>
+      </header>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Create Your Eluceat Account</h2>
+            <div class="social-auth">
+                <button class="google-btn" onclick="signInWithGoogle()">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button class="github-btn" onclick="signInWithGithub()">
+                    <i class="fab fa-github"></i> Continue with GitHub
+                </button>
+            </div>
+            
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <input type="text" id="full-name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="register-btn">Create Account</button>
+            </form>
+            
+            <p class="auth-footer">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <!-- ... existing footer code ... -->
+    </footer>
+
+    <script src="assets/js/auth.js"></script>
+</body>
+</html> 
