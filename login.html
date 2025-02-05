@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Eluceat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p id="login-error" class="error-message"></p>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const response = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Login successful!');
+                window.location.href = 'pricing.html';
+            } else {
+                document.getElementById('login-error').innerText = data.error;
+            }
+        });
+    </script>
+
+    <ul class="onepage-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#id-2">About</a></li>
+        <li><a href="#id-3">Services</a></li>
+        <li><a href="#id-4">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="Team.html">Team</a></li>
+    </ul>
+</body>
+</html> 
