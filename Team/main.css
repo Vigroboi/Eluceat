@@ -3641,7 +3641,7 @@ ul {
     top: 0;
     width: 50%;
     bottom: 0;
-    background-image: url("../img/bg/number.jpg");
+    background-image: url("../img/bg/bcground.jpg");
     background-size: cover;
     background-position: top;
     z-index: -1; /* Ensure the background stays behind content */

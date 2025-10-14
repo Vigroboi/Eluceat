@@ -83,7 +83,7 @@
                 <div class="input-message">
                     <textarea class="message" name="message" placeholder="Message" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-submit" onclick="handleSubmit(event, 'whatsapp')">Submit via WhatsApp</button>
+                <button type="submit" class="btn btn-submit" onclick="handleSubmit(event, 'whatsapp', '+27750097755')">Submit via WhatsApp</button>
                 <button type="button" class="btn btn-submit" onclick="handleSubmit(event, 'email')">Submit via Email</button>
                 <div class="or-text" style="color: white; text-align: center;">Or contact us on social media</div>
             </form>
@@ -93,7 +93,7 @@
             <div class="contacts-list">
                 <div class="contact-item">
                     <div class="contact-info">
-                        <img src="assets/img/Team/didi2.jpg" alt="Contact 1">
+                        <img src="assets/img/Team/newdidi.png" alt="Contact 1">
                         <h3 style="color: #2ac562;">Diditle Mokgoro</h3>
                         <p>Email: diditle.mokgoro@eluceat.com</p>
                         <p>Phone: +27750097755 </p>
@@ -148,26 +148,15 @@
             <section>
                 <div class="contact-item">
                     <div class="contact-info">
-                        <img src="assets/img/Team/THANDO.jpg" alt="Contact 7">
-                        <h3 style="color: #2ac562;">Thando</h3>
+                        <img src="assets/img/Team/tyron.png" alt="Contact 7">
+                        <h3 style="color: #2ac562;">Tyron Van Wyk</h3>
                         <p>Email: info@eluceat.com</p>
-                        <p>Phone: +27750097755</p>
+                        <p>Phone: +27839702540</p>
                     </div>
                     <div class="contact-bg" style="background-image: url(assets/img/contact/bg17.jpg);"></div>
                 </div>
             </section>
-            <section>
-                <div class="contact-item">
-                    <div class="contact-info">
-                      <img src="assets/img/contact/juni.jpg" alt="Contact 2">
-                      <h3 style="color: #2ac562;">Junior Mosses</h3>
-                      <p>Email: info@eluceat.com</p>
-                      <p>Phone: +27750097755</p>
-                    </div>
-                    <div class="contact-bg" style="background-image: url(assets/img/Randoms/pexels-imustbedead-10852561.jpg);"></div>
-                </div>
-            </div>
-        </section>
+            
     </div>
     <p> We encourage you to connect directly with the right individual for your needs,  
        <p> as they will provide the most relevant information and support. 
@@ -363,7 +352,7 @@
             
             if (method === 'whatsapp') {
                 const whatsappMessage = `Name: ${firstName} ${lastName}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
-                const whatsappUrl = `https://wa.me/27750097755?text=${encodeURIComponent(whatsappMessage)}`;
+                const whatsappUrl = `https://wa.me/+27750097755?text=${encodeURIComponent(whatsappMessage)}`;
                 window.open(whatsappUrl, '_blank');
             } else if (method === 'email') {
                 const mailtoLink = `mailto:eluceat.service@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`)}`;

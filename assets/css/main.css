@@ -1974,7 +1974,7 @@ ul {
     position: relative;
 }
 
-.pricing-01__+27691293465 {
+.pricing-01__27691293465 {
     border-bottom: 1px solid #f1f1f1;
     margin-left: 30px;
     margin-right: 30px;
@@ -2826,6 +2826,7 @@ h1 {
     height: 40px;
     line-height: 40px;
     color: #fff;
+   
     background-color: #444;
     text-align: center;
     position: fixed;
@@ -3668,13 +3669,13 @@ h1 {
 
 /* Background styling */
 .why .back {
-    position: absolute;
+    position:absolute;
     left: 0;
     top: 0;
-    width: 50%;
+    width: 105%;
     bottom: 0;
     background-image: url("../img/bg/number.jpg");
-    background-size: cover;
+    background-size:contain;
     background-position: top;
     z-index: -1; /* Ensure the background stays behind content */
 }
@@ -3799,9 +3800,6 @@ box-shadow: #111;
 position: relative;
 left: -400px;
 }
-
-
-
 
 /*carosell*/
 
