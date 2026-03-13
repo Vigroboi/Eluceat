@@ -5,26 +5,461 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/jpeg" href="favicon/favicon.jpg">
-    <title>Our Services</title>
-    <!-- Fonts-->
+    <title>Contact | Eluceat</title>
+
+    <!-- Fonts and vendor styles -->
     <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
-    <!-- Vendors-->
     <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
     <link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
     <link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
     <link rel="stylesheet" type="text/css" href="assets/vendors/wow/animate.css">
-    <!-- App & fonts-->
-    
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Montserrat:400,700">
-    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/contact us.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-   
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/contact us.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --contact-bg: #eef5ef;
+            --ink-900: #102117;
+            --ink-700: #35523f;
+            --ink-500: #5c7a67;
+            --brand-500: #2ac562;
+            --brand-700: #16813e;
+            --card: #ffffff;
+            --line: rgba(16, 33, 23, 0.12);
+            --shadow-soft: 0 20px 40px rgba(21, 46, 29, 0.08);
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--contact-bg);
+            color: var(--ink-900);
+        }
+
+        .contact-page {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 6% 10%, rgba(42, 197, 98, 0.24), transparent 30%),
+                radial-gradient(circle at 94% 15%, rgba(22, 129, 62, 0.13), transparent 26%),
+                linear-gradient(180deg, #f8fcf8 0%, #edf5ee 100%);
+            padding-bottom: 90px;
+        }
+
+        .contact-page::before,
+        .contact-page::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            animation: floatOrb 14s ease-in-out infinite;
+        }
+
+        .contact-page::before {
+            width: 320px;
+            height: 320px;
+            top: 180px;
+            left: -120px;
+            background: rgba(42, 197, 98, 0.15);
+        }
+
+        .contact-page::after {
+            width: 260px;
+            height: 260px;
+            right: -90px;
+            top: 520px;
+            background: rgba(16, 84, 45, 0.09);
+            animation-direction: reverse;
+        }
+
+        .contact-hero,
+        .contact-touch,
+        .contact-advisors,
+        .contact-note-wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-hero {
+            padding-top: 130px;
+        }
+
+        .contact-hero-card {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 36px 38px;
+            border-radius: 30px;
+            border: 1px solid rgba(42, 197, 98, 0.2);
+            background: rgba(255, 255, 255, 0.75);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 999px;
+            background: rgba(42, 197, 98, 0.14);
+            color: var(--brand-700);
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 700;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--brand-500);
+        }
+
+        .hero-title {
+            margin: 16px 0 12px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.1rem, 4.8vw, 4rem);
+            line-height: 1.04;
+            color: var(--ink-900);
+            letter-spacing: -0.03em;
+        }
+
+        .hero-text {
+            max-width: 780px;
+            font-size: 1.04rem;
+            line-height: 1.8;
+            color: var(--ink-700);
+            margin: 0;
+        }
+
+        .contact-touch {
+            margin-top: 34px;
+        }
+
+        .contact-grid {
+            max-width: 1040px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 24px;
+        }
+
+        .info-panel,
+        .form-panel {
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .info-panel {
+            padding: 28px;
+            background: linear-gradient(180deg, #0f2619 0%, #1d3a29 100%);
+            color: #dff5e7;
+        }
+
+        .info-panel h3 {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.7rem;
+            color: #f6fff8;
+        }
+
+        .info-panel p {
+            margin: 12px 0 24px;
+            color: #b7d8c2;
+            line-height: 1.7;
+        }
+
+        .info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 14px;
+        }
+
+        .info-list li {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #def4e6;
+        }
+
+        .info-list i {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(42, 197, 98, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #84f4a9;
+        }
+
+        .form-panel {
+            padding: 28px;
+        }
+
+        .form-title {
+            margin: 0 0 6px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.8rem;
+            color: var(--ink-900);
+        }
+
+        .form-subtitle {
+            margin: 0 0 20px;
+            color: var(--ink-500);
+            line-height: 1.6;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .contact-field {
+            margin-bottom: 12px;
+        }
+
+        .contact-page .contact-field input,
+        .contact-page .contact-field textarea {
+            width: 100%;
+            border: 1px solid rgba(16, 33, 23, 0.16);
+            border-radius: 22px !important;
+            background: #f8fcf8;
+            color: var(--ink-900);
+            font-size: 0.96rem;
+            padding: 14px 16px !important;
+            line-height: 1.35 !important;
+            height: auto !important;
+            -webkit-appearance: none;
+            appearance: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-page .contact-field input:focus,
+        .contact-page .contact-field textarea:focus {
+            outline: none;
+            border-color: var(--brand-500);
+            box-shadow: 0 0 0 3px rgba(42, 197, 98, 0.16);
+        }
+
+        .contact-page .contact-field textarea {
+            min-height: 130px;
+            border-radius: 24px !important;
+            resize: vertical;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .contact-btn {
+            border: none;
+            border-radius: 999px;
+            padding: 11px 20px;
+            font-size: 0.93rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-btn.primary {
+            background: linear-gradient(120deg, var(--brand-500) 0%, var(--brand-700) 100%);
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(42, 197, 98, 0.35);
+        }
+
+        .contact-btn.secondary {
+            background: #eff7f1;
+            color: #234d34;
+            border: 1px solid rgba(42, 197, 98, 0.28);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-note {
+            margin-top: 14px;
+            font-size: 0.9rem;
+            color: var(--ink-500);
+        }
+
+        .contact-advisors {
+            margin-top: 42px;
+        }
+
+        .section-title-wrap {
+            max-width: 1040px;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+            color: var(--ink-900);
+        }
+
+        .section-subtitle {
+            margin: 8px auto 0;
+            max-width: 740px;
+            color: var(--ink-700);
+            line-height: 1.7;
+        }
+
+        .advisor-grid {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            padding: 0 16px;
+        }
+
+        .advisor-card {
+            background: linear-gradient(180deg, #ffffff 0%, #f4fbf5 100%);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 18px;
+            box-shadow: 0 14px 30px rgba(21, 46, 29, 0.08);
+            text-align: center;
+            transform: translateY(26px);
+            opacity: 0;
+            transition: transform 0.55s ease, opacity 0.55s ease, box-shadow 0.25s ease;
+        }
+
+        .advisor-card.is-visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .advisor-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 38px rgba(21, 46, 29, 0.12);
+        }
+
+        .advisor-image {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(42, 197, 98, 0.35);
+            box-shadow: 0 6px 20px rgba(42, 197, 98, 0.2);
+            margin-bottom: 14px;
+        }
+
+        .advisor-name {
+            margin: 0;
+            color: var(--ink-900);
+            font-size: 1.14rem;
+            font-weight: 600;
+        }
+
+        .advisor-role {
+            display: block;
+            margin: 6px 0 12px;
+            color: var(--brand-700);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .advisor-meta {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--ink-700);
+        }
+
+        .contact-note-wrap {
+            max-width: 1040px;
+            margin: 28px auto 0;
+            padding: 0 16px;
+        }
+
+        .contact-note-card {
+            border-radius: 22px;
+            border: 1px solid rgba(42, 197, 98, 0.22);
+            background: linear-gradient(90deg, rgba(42, 197, 98, 0.11) 0%, rgba(255, 255, 255, 0.92) 35%, rgba(42, 197, 98, 0.08) 100%);
+            padding: 24px 26px;
+            color: #1f3d2d;
+            line-height: 1.8;
+            box-shadow: var(--shadow-soft);
+            opacity: 0;
+            transform: translateY(22px);
+            transition: transform 0.55s ease, opacity 0.55s ease;
+        }
+
+        .contact-note-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-note-card strong {
+            color: #0e2e1d;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            50% {
+                transform: translate3d(0, 18px, 0) scale(1.03);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                line-height: 1.1;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contact-hero {
+                padding-top: 118px;
+            }
+
+            .contact-hero-card,
+            .form-panel,
+            .info-panel {
+                padding: 22px;
+                border-radius: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .advisor-grid {
+                padding: 0;
+            }
+
+            .contact-note-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="page-wrap" id="root">
@@ -36,9 +471,9 @@
                         <nav class="onepage-nav">
                             <ul class="onepage-menu">
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="#id-2">About</a></li>
-                                <li><a href="#id-3">Services</a></li>
-                                <li><a href="#id-4">Work</a></li>
+                                <li><a href="index.html#id-2">About</a></li>
+                                <li><a href="index.html#id-3">Services</a></li>
+                                <li><a href="index.html#id-4">Work</a></li>
                                 <li><a href="Blog.html">Data</a></li>
                                 <li class="current-menu-item"><a href="Contact.html">Contact</a></li>
                                 <li><a href="Team.html">Team</a></li>
@@ -47,320 +482,289 @@
                                 <span></span><span></span><span></span>
                             </div>
                         </nav>
-                        <!-- End / onepage-nav -->
                     </div>
                 </div>
             </div>
         </header>
-        
-        <section id="services" style="background-color: black;">
-            <h2 style="color: #2ac562;">Questions & answers </h2>
-            <p style="color: white">We are thrilled to announce the range of services we offer to 
-                <p style="color: white;">your needs! Whether you're looking for assistance with website development,
-                    <p style="color:white;"> web design or Marketing, we have dedicated team members ready to help you achieve your goals.</p>
 
-                        <p style="color: whitesmoke"> To ensure you receive the best support ,
-                            <p style="color: whitesmoke">  please reach out to the specific team members who specialize in the serve you require
+        <main class="contact-page">
+            <section class="contact-hero">
+                <div class="container">
+                    <div class="contact-hero-card">
+                        <span class="eyebrow">Let's connect</span>
+                        <h1 class="hero-title">Get in touch with the right Eluceat advisor</h1>
+                        <p class="hero-text">
+                            Whether you need help with software development, web design, marketing, or financial strategy,
+                            our team is ready to guide you. Tell us what you need and we will route you to the best person quickly.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-                
-            </p>
-        
-        </section>
-        <section id="contact" style="background-color:black; padding: 40px;">
-            <h2 style="color: #2ac562; text-align: center;">Get In Touch</h2>
-            <form id="contact-form" class="contact-container" style="max-width: 600px; margin: auto;">
-                <h1 style="color: white;">Contact Us</h1>
-                <div class="input-name">
-                    <input type="text" class="first-name" name="fName" placeholder="First Name" required>
-                    <input type="text" class="last-name" name="lName" placeholder="Last Name" required>
-                </div>
-                <div class="input-email">
-                    <input type="email" class="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="input-subject">
-                    <input type="text" class="subject" name="subject" placeholder="Subject" required>
-                </div>
-                <div class="input-message">
-                    <textarea class="message" name="message" placeholder="Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-submit" onclick="handleSubmit(event, 'whatsapp', '+27750097755')">Submit via WhatsApp</button>
-                <button type="button" class="btn btn-submit" onclick="handleSubmit(event, 'email')">Submit via Email</button>
-                <div class="or-text" style="color: white; text-align: center;">Or contact us on social media</div>
-            </form>
-        </section>
-        <section id="contacts" style="background-color:black; padding: 40px;">
-            <h2 style="color: #2ac562; text-align: center;">Our Advisors</h2>
-            <div class="contacts-list">
-                <div class="contact-item">
-                    <div class="contact-info">
-                        <img src="assets/img/Team/newdidi.png" alt="Contact 1">
-                        <h3 style="color: #2ac562;">Diditle Mokgoro</h3>
-                        <p>Email: diditle.mokgoro@eluceat.com</p>
-                        <p>Phone: +27750097755 </p>
-                    </div>
-                    <div class="contact-bg" style="background-image:url(assets/img/contact/bg11.jpg)"></div>
-                </div>
-                <section>
-                <div class="contact-item">
-                    <div class="contact-info">
-                        <img src="assets/img/contact/bless.jpg" alt="Contact 8">
-                        <h3 style="color: #2ac562;">Blessing Ngozo</h3>
-                        <p>Email: blessing.ngozo@eluceat.com</p>
-                        <p>Phone: +27750097755</p>
-                    </div>
-                    <div class="contact-bg" style="background-image: url(assets/img/contact/bg12.jpg);"></div>
-                </div>
-            </section>
-            <section>
-                <div class="contact-item">
-                    <div class="contact-info">
-                        <img src="assets/img/contact/luk.jpg" alt="Contact 3">
-                        <h3 style="color: #2ac562;">Lukho Ntamo</h3>
-                        <p>Email: lukho.ntamo@eluceat.com</p>
-                        <p>Phone: +27750097755</p>
-                    </div>
-                    <div class="contact-bg" style="background-image: url(assets/img/contact/bg13.jpg);"></div>
-                </div>
-            </section>
-            <section>
-                <div class="contact-item">
-                    <div class="contact-info">
-                        <img src="assets/img/contact/wes.jpg" alt="Contact 4">
-                        <h3 style="color: #2ac562;">Wesley Hoges</h3>
-                        <p>Email: wesley.hoges@eluceat.com</p>
-                        <p>Phone: +27750097755</p>
-                    </div>
-                    <div class="contact-bg" style="background-image: url(assets/img/contact/bg14.jpg);"></div>
-                </div>
-            </section>
-            <section>
-                <div class="contact-item">
-                    <div class="contact-info">
-                        <img src="assets/img/contact/anele.jpg" alt="Contact 5">
-                        <h3 style="color: #2ac562;">Anele Gumede</h3>
-                        <p>Email: info@eluceat.com</p>
-                        <p>Phone: +27750097755</p>
-                    </div>
-                    <div class="contact-bg" style="background-image: url(assets/img/contact/bg15.jpg);"></div>
-                </div>
-            </section>
-           
-            <section>
-                <div class="contact-item">
-                    <div class="contact-info">
-                        <img src="assets/img/Team/tyron.png" alt="Contact 7">
-                        <h3 style="color: #2ac562;">Tyron Van Wyk</h3>
-                        <p>Email: info@eluceat.com</p>
-                        <p>Phone: +27839702540</p>
-                    </div>
-                    <div class="contact-bg" style="background-image: url(assets/img/contact/bg17.jpg);"></div>
-                </div>
-            </section>
-            
-    </div>
-    <p> We encourage you to connect directly with the right individual for your needs,  
-       <p> as they will provide the most relevant information and support. 
-        <p> Your satisfaction is our priority, 
-            <p>  and we're here to ensure you receive the best possible service.
+            <section class="contact-touch">
+                <div class="container">
+                    <div class="contact-grid">
+                        <aside class="info-panel">
+                            <h3>Contact options</h3>
+                            <p>Send your request through WhatsApp or email and include as much detail as possible for a faster response.</p>
+                            <ul class="info-list">
+                                <li><i class="fa-solid fa-phone"></i> WhatsApp: +27 75 009 7755</li>
+                                <li><i class="fa-solid fa-envelope"></i> Email: eluceat.service@gmail.com</li>
+                                <li><i class="fa-solid fa-clock"></i> Response window: Mon - Sat</li>
+                                <li><i class="fa-solid fa-user-group"></i> Dedicated advisor routing</li>
+                            </ul>
+                        </aside>
 
-       <p> Thank you, and we look forward to working with you!<p> 
-    <script src="scripts.js"></script>
-    <style>
-        .contacts-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .contact-item {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            width: 300px;
-        }
-        .contact-item img {
-            width: 100%;
-            height: 100%;
-            border-radius: 100%;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            background-color: #121212;
-        }
-        .contact-container {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        .input-name, .input-email, .input-subject, .input-message {
-            margin-bottom: 15px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2c2c2c;
-            color: white;
-        }
-        button.btn-submit {
-            background-color: #2ac562;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button.btn-submit:hover {
-            background-color: #24a54e;
-        }
-    </style>
-    
-    <!-- End / Section -->
-    
-       <section
-          <!-- End / Content-->
-         
-        </form>
-    </section>
-    <section
-          <!-- footer -->
-          <footer class="footer">
+                        <div class="form-panel">
+                            <h2 class="form-title">Contact us</h2>
+                            <p class="form-subtitle">Share your details and message. Choose your preferred channel below.</p>
+
+                            <form id="contact-form" novalidate>
+                                <div class="form-row">
+                                    <div class="contact-field">
+                                        <input type="text" name="fName" placeholder="First Name" required>
+                                    </div>
+                                    <div class="contact-field">
+                                        <input type="text" name="lName" placeholder="Last Name" required>
+                                    </div>
+                                </div>
+                                <div class="contact-field">
+                                    <input type="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="contact-field">
+                                    <input type="text" name="subject" placeholder="Subject" required>
+                                </div>
+                                <div class="contact-field">
+                                    <textarea name="message" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="cta-row">
+                                    <button type="button" class="contact-btn primary" onclick="handleSubmit(event, 'whatsapp')">Submit via WhatsApp</button>
+                                    <button type="button" class="contact-btn secondary" onclick="handleSubmit(event, 'email')">Submit via Email</button>
+                                </div>
+                                <p class="social-note">Or reach us through our social links in the footer.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-advisors" id="contacts">
+                <div class="section-title-wrap">
+                    <h2 class="section-title">Our Advisors</h2>
+                    <p class="section-subtitle">Pick the person closest to your need and get focused support from the right specialist.</p>
+                </div>
+                <div class="advisor-grid">
+                    <article class="advisor-card">
+                        <img class="advisor-image" src="assets/img/Team/newdidi.png" alt="Didintle Mokgoro">
+                        <h3 class="advisor-name">Didintle Mokgoro</h3>
+                        <span class="advisor-role">Software Engineering Advisor</span>
+                        <p class="advisor-meta">Email: diditle.mokgoro@eluceat.com</p>
+                        <p class="advisor-meta">Phone: +27 75 009 7755</p>
+                    </article>
+
+                    <article class="advisor-card">
+                        <img class="advisor-image" src="assets/img/contact/bless.jpg" alt="Blessing Ngozo">
+                        <h3 class="advisor-name">Blessing Ngozo</h3>
+                        <span class="advisor-role">Financial and Marketing Advisor</span>
+                        <p class="advisor-meta">Email: blessing.ngozo@eluceat.com</p>
+                        <p class="advisor-meta">Phone: +27 75 009 7755</p>
+                    </article>
+
+                    <article class="advisor-card">
+                        <img class="advisor-image" src="assets/img/contact/luk.jpg" alt="Lukho Ntamo">
+                        <h3 class="advisor-name">Lukho Ntamo</h3>
+                        <span class="advisor-role">Product and Strategy Advisor</span>
+                        <p class="advisor-meta">Email: lukho.ntamo@eluceat.com</p>
+                        <p class="advisor-meta">Phone: +27 75 009 7755</p>
+                    </article>
+
+                    <article class="advisor-card">
+                        <img class="advisor-image" src="assets/img/contact/wes.jpg" alt="Wesley Hodges">
+                        <h3 class="advisor-name">Wesley Hodges</h3>
+                        <span class="advisor-role">Financial Trading Advisor</span>
+                        <p class="advisor-meta">Email: wesley.hoges@eluceat.com</p>
+                        <p class="advisor-meta">Phone: +27 75 009 7755</p>
+                    </article>
+
+                    <article class="advisor-card">
+                        <img class="advisor-image" src="assets/img/contact/anele.jpg" alt="Anele Gumede">
+                        <h3 class="advisor-name">Anele Gumede</h3>
+                        <span class="advisor-role">Technology Advisor</span>
+                        <p class="advisor-meta">Email: info@eluceat.com</p>
+                        <p class="advisor-meta">Phone: +27 75 009 7755</p>
+                    </article>
+
+                    <article class="advisor-card">
+                        <img class="advisor-image" src="assets/img/Team/tyron.png" alt="Tyron Van Wyk">
+                        <h3 class="advisor-name">Tyron Van Wyk</h3>
+                        <span class="advisor-role">Financial Advisor and Trader</span>
+                        <p class="advisor-meta">Email: info@eluceat.com</p>
+                        <p class="advisor-meta">Phone: +27 83 970 2540</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="contact-note-wrap">
+                <div class="contact-note-card" id="contact-note">
+                    <strong>We encourage you to connect directly with the right individual for your needs.</strong>
+                    That gives you the most relevant guidance, faster answers, and support tailored to your project.
+                    Your satisfaction is our priority, and our team is here to help you move forward with confidence.
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
             <div class="container">
-              <div class="row">
-                <div class="footer-col">
-                  <h4>company</h4>
-                  <ul>
-                    <li><a href="#">about us</a></li>
-                    <li><a href="#">our services</a></li>
-                    <li><a href="#">privacy policy</a></li>
-                  </ul>
+                <div class="row">
+                    <div class="footer-col">
+                        <h4>company</h4>
+                        <ul>
+                            <li><a href="#">about us</a></li>
+                            <li><a href="#">our services</a></li>
+                            <li><a href="#">privacy policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>get help</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Software Development</a></li>
+                            <li><a href="#">Subscribtion services</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Trending</h4>
+                        <ul>
+                            <li><a href="#">Web Developement</a></li>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Site Securty</a></li>
+                            <li><a href="#">Brand Promoting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>follow us</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/1XJP2hrCru/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/eluceatcom?s=21"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/eluceatcom?igsh=MWdkamt0anV5Y2w4eA%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/eluceat-eluceat-621a53347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-col">
-                  <h4>get help</h4>
-                  <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Web design</a></li>
-                    <li><a href="#">Software Development</a></li>
-                    <li><a href="#">Subscribtion services </a></li>
-                    
-                  </ul>
-                </div>
-                <div class="footer-col">
-                  <h4>Trending</h4>
-                  <ul>
-                    <li><a href="#">Web Developement</a></li>
-                    <li><a href="#">Web design </a></li>
-                    <li><a href="#">Site Securty </a></li>
-                    <li><a href="#">Brand Promoting </a></li>
-                  </ul>
-                </div>
-                <div class="footer-col">
-                  <h4>follow us</h4>
-                  <div class="social-links">
-                    <a href="https://www.facebook.com/share/1XJP2hrCru/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/eluceatcom?s=21"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/eluceatcom?igsh=MWdkamt0anV5Y2w4eA%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/eluceat-eluceat-621a53347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
-                  </div>
-                </div>
-              </div>
             </div>
-         </footer>
-        </div>
-    </section>  
-     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
-    <script src="GSAP/esm/all.js"></script>
-    <script src="../BDF/assets/js/gsap.js" defer></script>
- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js">
-    </script>
-    
-    <script
-      type="text/javascript"
-      src="assets/vendors/_jquery/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/isotope-layout/isotope.pkgd.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery-one-page/jquery.nav.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.easing/jquery.easing.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/masonry-layout/masonry.pkgd.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/swiper/swiper.jquery.js"
-    ></script>
+    <script type="text/javascript" src="assets/vendors/_jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
     <script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.countTo/jquery.countTo.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/tabs/awe-tabs.js"
-    ></script>
+    <script type="text/javascript" src="assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/tabs/awe-tabs.js"></script>
     <script type="text/javascript" src="assets/vendors/wow/wow.js"></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.appear/jquery.appear.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/waterpipe/waterpipe.js"
-    ></script>
-    <!-- App-->
+    <script type="text/javascript" src="assets/vendors/jquery.appear/jquery.appear.js"></script>
+    <script type="text/javascript" src="assets/vendors/waterpipe/waterpipe.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
+
     <script>
-        async function handleSubmit(event, method) {
+        function handleSubmit(event, method) {
             event.preventDefault();
-            
-            const formData = new FormData(event.target.form);
-            const firstName = formData.get('fName');
-            const lastName = formData.get('lName');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
+
+            const form = document.getElementById('contact-form');
+            if (!form) {
+                return;
+            }
+
+            const formData = new FormData(form);
+            const firstName = formData.get('fName') || '';
+            const lastName = formData.get('lName') || '';
+            const email = formData.get('email') || '';
+            const subject = formData.get('subject') || '';
+            const message = formData.get('message') || '';
+
+            if (!firstName || !lastName || !email || !subject || !message) {
+                form.reportValidity();
+                return;
+            }
+
             if (method === 'whatsapp') {
-                const whatsappMessage = `Name: ${firstName} ${lastName}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
-                const whatsappUrl = `https://wa.me/+27750097755?text=${encodeURIComponent(whatsappMessage)}`;
+                const whatsappMessage =
+                    `Name: ${firstName} ${lastName}\n` +
+                    `Email: ${email}\n` +
+                    `Subject: ${subject}\n` +
+                    `Message: ${message}`;
+
+                const whatsappUrl = `https://wa.me/27750097755?text=${encodeURIComponent(whatsappMessage)}`;
                 window.open(whatsappUrl, '_blank');
-            } else if (method === 'email') {
-                const mailtoLink = `mailto:eluceat.service@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`)}`;
+                return;
+            }
+
+            if (method === 'email') {
+                const body =
+                    `Name: ${firstName} ${lastName}\n` +
+                    `Email: ${email}\n` +
+                    `Message: ${message}`;
+
+                const mailtoLink =
+                    `mailto:eluceat.service@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 window.location.href = mailtoLink;
             }
         }
 
-        document.querySelector('.btn-submit').addEventListener('click', handleSubmit);
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.gsap) {
+                gsap.from('.contact-hero-card', {
+                    opacity: 0,
+                    y: 28,
+                    duration: 0.85,
+                    ease: 'power2.out'
+                });
+
+                gsap.from('.hero-title, .hero-text, .eyebrow', {
+                    opacity: 0,
+                    y: 22,
+                    duration: 0.7,
+                    stagger: 0.12,
+                    delay: 0.12,
+                    ease: 'power2.out'
+                });
+
+                gsap.from('.info-panel, .form-panel', {
+                    opacity: 0,
+                    y: 26,
+                    duration: 0.75,
+                    stagger: 0.14,
+                    delay: 0.24,
+                    ease: 'power2.out'
+                });
+            }
+
+            const revealTargets = document.querySelectorAll('.advisor-card, .contact-note-card');
+            const observer = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    });
+                },
+                { threshold: 0.16 }
+            );
+
+            revealTargets.forEach((el) => observer.observe(el));
+        });
     </script>
-  </body>
+</body>
 </html>
