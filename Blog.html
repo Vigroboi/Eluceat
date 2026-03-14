@@ -1,311 +1,1026 @@
 <!DOCTYPE html>
-<html >
-  <head>
-    <head>
-      <link rel="icon" type="image/jpeg" href="favicon/favicon.jpg">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Solutions | Eluceat</title>
+  <link rel="icon" type="image/jpeg" href="favicon/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eluceat AI Solutions - Intelligent automation, chatbots, analytics and more for your business.">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Vendors -->
+  <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendors/wow/animate.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+
+  <style>
+    :root {
+      --ai-bg: #eef5ef;
+      --ink-900: #102117;
+      --ink-700: #35523f;
+      --ink-500: #5c7a67;
+      --brand-500: #2ac562;
+      --brand-700: #16813e;
+      --card: #ffffff;
+      --line: rgba(16, 33, 23, 0.12);
+      --shadow-soft: 0 20px 40px rgba(21, 46, 29, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    .ai-page {
+      font-family: 'Poppins', sans-serif;
+      color: var(--ink-900);
+      background: var(--ai-bg);
+    }
+
+    /* ── Hero ── */
+    .ai-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0f2619 0%, #1d3a29 100%);
+    }
+    .ai-hero__video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+    .ai-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(15,38,25,0.75) 0%, rgba(29,58,41,0.85) 100%);
+    }
+    .ai-hero__content {
+      position: relative; z-index: 2;
+      max-width: 860px;
+      padding: 0 24px;
+    }
+    .ai-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 24px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brand-500);
+      font-weight: 700;
+      margin-bottom: 28px;
+      background: rgba(42,197,98,0.14);
+    }
+    .ai-hero__badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--brand-500);
+    }
+    .ai-hero__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.04;
+      color: #f6fff8;
+      margin: 0 0 24px;
+      letter-spacing: -0.03em;
+    }
+    .ai-hero__title span { color: var(--brand-500); }
+    .ai-hero__sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: #b7d8c2;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+    .ai-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: #ffffff;
+      color: var(--brand-500);
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+      box-shadow: 0 4px 30px rgba(255,255,255,0.25);
+    }
+    .ai-cta-btn:hover {
+      transform: translateY(-2px);
+      background: #f0f0f0;
+      color: var(--brand-700);
+      box-shadow: 0 8px 40px rgba(255,255,255,0.35);
+    }
+    .ai-hero__scroll {
+      position: absolute;
+      bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounceDown 2s infinite;
+      color: rgba(183,216,194,0.5);
+      font-size: 1.5rem;
+    }
+    @keyframes bounceDown {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(12px); }
+    }
+
+    /* ── Stats ── */
+    .ai-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+      max-width: 1040px;
+      margin: -50px auto 0;
+      position: relative; z-index: 3;
+      background: var(--card);
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .ai-stats__item {
+      padding: 40px 24px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+    .ai-stats__item:last-child { border-right: none; }
+    .ai-stats__number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--brand-700);
+      line-height: 1;
+    }
+    .ai-stats__label {
+      font-size: 0.85rem;
+      color: var(--ink-500);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── Section headers ── */
+    .ai-section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+    }
+    .ai-section-header__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brand-700);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .ai-section-header__tag::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--brand-500);
+    }
+    .ai-section-header__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--ink-900);
+      margin: 0 0 16px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .ai-section-header__desc {
+      font-size: 1.05rem;
+      color: var(--ink-500);
+      line-height: 1.7;
+    }
+
+    /* ── Solutions section ── */
+    .ai-solutions {
+      padding: 120px 0 100px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 20%, rgba(42,197,98,0.15), transparent 30%),
+        radial-gradient(circle at 92% 80%, rgba(22,129,62,0.08), transparent 26%),
+        linear-gradient(180deg, #f8fcf8 0%, #edf5ee 100%);
+    }
+    .ai-solutions::before,
+    .ai-solutions::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+      animation: floatOrb 14s ease-in-out infinite;
+    }
+    .ai-solutions::before {
+      width: 280px; height: 280px;
+      top: 200px; left: -100px;
+      background: rgba(42,197,98,0.1);
+    }
+    .ai-solutions::after {
+      width: 220px; height: 220px;
+      right: -80px; bottom: 300px;
+      background: rgba(16,84,45,0.06);
+      animation-direction: reverse;
+    }
+    @keyframes floatOrb {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Cards ── */
+    .ai-card {
+      position: relative;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(42,197,98,0.12);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s;
+      box-shadow: var(--shadow-soft);
+    }
+    .ai-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(21,46,29,0.12);
+    }
+    .ai-card__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+    .ai-card__img-link:hover .ai-card__img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+    .ai-card__img-link {
+      display: block;
+      overflow: hidden;
+      position: relative;
+    }
+    .ai-card__img-link::after {
+      content: '\f00e';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(42,197,98,0.85);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .ai-card__img-link:hover::after {
+      opacity: 1;
+    }
+
+    .ai-card__img-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      padding: 8px 14px;
+      background: rgba(16, 33, 23, 0.7);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 10px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ── Image Popup ── */
+    .img-popup-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(16, 33, 23, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      cursor: pointer;
+    }
+    .img-popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .img-popup-box {
+      position: relative;
+      max-width: 600px;
+      max-height: 75vh;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+      border: 2px solid rgba(42,197,98,0.2);
+      background: var(--card);
+      transform: scale(0.9);
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+      cursor: default;
+    }
+    .img-popup-overlay.active .img-popup-box {
+      transform: scale(1);
+    }
+    .img-popup-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 75vh;
+      object-fit: contain;
+    }
+    .img-popup-title {
+      padding: 14px 20px;
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink-900);
+      background: var(--card);
+      border-top: 1px solid var(--line);
+    }
+    .img-popup-close {
+      position: absolute;
+      top: 10px; right: 10px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 1;
+    }
+    .img-popup-close:hover {
+      background: rgba(0,0,0,0.75);
+    }
+    .img-popup-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(42,197,98,0.8);
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 1;
+    }
+    .img-popup-nav:hover { background: var(--brand-700); }
+    .img-popup-prev { left: 10px; }
+    .img-popup-next { right: 10px; }
+    .ai-card__body {
+      padding: 28px 26px 30px;
+    }
+    .ai-card__number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--brand-700);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .ai-card__icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: rgba(42,197,98,0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--brand-700);
+      margin-bottom: 16px;
+    }
+    .ai-card__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin: 0 0 10px;
+    }
+    .ai-card__text {
+      font-size: 0.9rem;
+      color: var(--ink-500);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* ── Video Showcase ── */
+    .ai-showcase {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #edf5ee 0%, #f8fcf8 100%);
+    }
+    .ai-showcase__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .ai-showcase__card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .ai-showcase__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 50px rgba(21,46,29,0.12);
+    }
+    .ai-showcase__card video {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .ai-showcase__card-body {
+      padding: 22px 20px;
+    }
+    .ai-showcase__card-body h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin: 0 0 6px;
+    }
+    .ai-showcase__card-body p {
+      font-size: 0.88rem;
+      color: var(--ink-500);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Featured Split ── */
+    .ai-featured {
+      padding: 100px 0;
+      background:
+        radial-gradient(circle at 90% 50%, rgba(42,197,98,0.1), transparent 40%),
+        linear-gradient(180deg, #f8fcf8 0%, #eef5ef 100%);
+    }
+    .ai-featured__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      align-items: center;
+    }
+    .ai-featured__img-wrap {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(42,197,98,0.15);
+      box-shadow: var(--shadow-soft);
+    }
+    .ai-featured__img-wrap img {
+      width: 100%; display: block;
+    }
+    .ai-featured__content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--ink-900);
+      margin: 0 0 20px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .ai-featured__content h2 span { color: var(--brand-700); }
+    .ai-featured__content p {
+      font-size: 1rem;
+      color: var(--ink-700);
+      line-height: 1.8;
+      margin: 0 0 28px;
+    }
+    .ai-featured__list {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ai-featured__list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--ink-700);
+    }
+    .ai-featured__list li i {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(42,197,98,0.14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-700);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ── CTA ── */
+    .ai-cta {
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0f2619 0%, #1d3a29 100%);
+    }
+    .ai-cta::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(42,197,98,0.15), transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .ai-cta h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: #f6fff8;
+      margin: 0 0 16px;
+      position: relative;
+      letter-spacing: -0.02em;
+    }
+    .ai-cta p {
+      font-size: 1.05rem;
+      color: #b7d8c2;
+      max-width: 550px;
+      margin: 0 auto 36px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .ai-showcase__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .ai-featured__inner { grid-template-columns: 1fr; }
+      .ai-grid { grid-template-columns: 1fr; }
+      .ai-stats {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -30px;
+        border-radius: 18px;
+      }
+      .ai-stats__item { border-bottom: 1px solid var(--line); }
+      .ai-stats__item:nth-child(odd) { border-right: 1px solid var(--line); }
+      .ai-stats__item:nth-child(even) { border-right: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap ai-page" id="root">
+
+    <!-- Header -->
+    <header class="header header--fixed">
       <div class="container">
-    <div class="col-lg-6">
-      <!-- Content -->
-    </div>
-    <div class="col-lg-6">
-      <!-- Content -->
-    </div>
-  </div>
-    <meta charset="utf-8">
-    <title>Data</title>
-    
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Fonts-->
-    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
-    <!-- Vendors-->
-    <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendors/wow/animate.css">
-    <!-- App & fonts-->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Montserrat:400,700">
-    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/footer.css">
-
-   
-     <!-- Font Awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-   <!-- Google Font -->
-   <link
-     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
-     rel="stylesheet" />
-  </head>
-
-  <body>
-
-    <div class="page-wrap" id="root">
-      <!-- header -->
-      <header class="header header--fixed">
-        <div class="container">
-          <div class="header__inner">
-            <div class="header__logo"><a href="index.html">Eluceat</a></div>
-            <div class="header__menu">
-              <!-- onepage-nav -->
-              <nav class="onepage-nav">
-                <!-- onepage-menu -->
-                <ul class="onepage-menu">
-                  <li>
-                    <a href="index.html">Home</a></li>
-                    <li><a href="index.html#id-2">About</a></li>
-                    <li><a href="index.html#id-3">Services</a></li>
-                    <li><a href="index.html#id-4">Work</a></li>
-                    <li><a href="Blog.html">Data</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
-                    <li><a href="Team.html">Team</a></li>
-                  </ul>
-                <!-- onepage-menu -->
-
-                <div class="navbar-toggle">
-                  <span></span><span></span><span></span>
-                </div>
-              </nav>
-              <!-- End / onepage-nav -->
-            </div>
+        <div class="header__inner">
+          <div class="header__logo"><a href="index.html">Eluceat</a></div>
+          <div class="header__menu">
+            <nav class="onepage-nav">
+              <ul class="onepage-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#id-2">About</a></li>
+                <li><a href="index.html#id-3">Services</a></li>
+                <li><a href="index.html#id-4">Work</a></li>
+                <li><a href="Blog.html" class="active">AI Solutions</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Team.html">Team</a></li>
+              </ul>
+              <div class="navbar-toggle"><span></span><span></span><span></span></div>
+            </nav>
           </div>
-        </div>
-      </header>
-      <!-- End / header -->
-      <div class="hero"; style="background-image: url(assets/img/bg/backk.jpg);"
-   
- <!-- Blog Posts Container -->
-
-      <!-- Post 1 -->
-      <div class="post swiper-slide">
-        <div class="post__media">
-          <a href="#"><img src="assets/img/work/Eluceat11.png" alt="Is UX Really That Important?" /></a>
-        </div>
-        <div class="post__content">
-          <div class="post__meta">
-            <span class="author" style="color: white;">Boss Mbuyamba</span>
-            <span class="cat"><i class="fa fa-tag"></i> Development</span>
-          </div>
-          <h3 class="post__title">
-            <a href="#" style="color: white;">Be differnt be eluceat </a>
-          </h3>
-          <p class="post__text" style="color: white;">
-            Join us in our exclusive events and learn enjoy and become your better self and become your better future 
-          </p>
-          <a class="a-btn style-2" href="#">Read More</a>
         </div>
       </div>
-      <!-- End / Post 1 -->
-    </div>
-  </div>
+    </header>
 
- 
-<div class="awe-content" data-options= i class= far fa-align-center fa-lg fa-fw ></i>"="">
-  <div class="container">
-    <section class="awe-section awe-text-center" id="id-5">
-   
+    <!-- Hero -->
+    <section class="ai-hero">
+      <video class="ai-hero__video" autoplay muted loop playsinline>
+        <source src="assets/img/Ai-img/aivideo.mp4" type="video/mp4">
+      </video>
+      <div class="ai-hero__overlay"></div>
+      <div class="ai-hero__content">
+        <div class="ai-hero__badge">Powered by Intelligence</div>
+        <h1 class="ai-hero__title">AI Solutions <span>Built for Growth</span></h1>
+        <p class="ai-hero__sub">We build intelligent systems that automate your business, engage your customers, and unlock insights from your data.</p>
+        <a href="Contact.html" class="ai-cta-btn">
+          Get Started <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="ai-hero__scroll"><i class="fa fa-chevron-down"></i></div>
+    </section>
+
+    <!-- Stats -->
+    <div class="ai-stats">
+      <div class="ai-stats__item">
+        <div class="ai-stats__number">12+</div>
+        <div class="ai-stats__label">AI Solutions</div>
+      </div>
+      <div class="ai-stats__item">
+        <div class="ai-stats__number">24/7</div>
+        <div class="ai-stats__label">Automation</div>
+      </div>
+      <div class="ai-stats__item">
+        <div class="ai-stats__number">3x</div>
+        <div class="ai-stats__label">Faster Growth</div>
+      </div>
+      <div class="ai-stats__item">
+        <div class="ai-stats__number">100%</div>
+        <div class="ai-stats__label">Custom Built</div>
+      </div>
+    </div>
+
+    <!-- Solutions Grid -->
+    <section class="ai-solutions">
+      <div class="ai-section-header">
+        <div class="ai-section-header__tag">What We Offer</div>
+        <h2 class="ai-section-header__title">Intelligent Solutions for Modern Businesses</h2>
+        <p class="ai-section-header__desc">From chatbots to full business automation, we deliver AI tools that save time, reduce costs, and drive revenue.</p>
+      </div>
+
+      <div class="ai-grid">
+
+        <!-- 01 AI Website Chatbots -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.1s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/gemini-2.5-flash-image_Clean_digital_interface_canvas_showing_a_modern_website_with_an_integrated_AI_ch-0.jpg.jpeg" title="AI Website Chatbots"><img class="ai-card__img" src="assets/img/Ai-img/gemini-2.5-flash-image_Clean_digital_interface_canvas_showing_a_modern_website_with_an_integrated_AI_ch-0.jpg.jpeg" alt="AI Chatbot interface"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 01</div>
+            <div class="ai-card__icon"><i class="fa fa-robot"></i></div>
+            <h3 class="ai-card__title">AI Website Chatbots</h3>
+            <p class="ai-card__text">AI chatbots provide instant responses to website visitors, helping businesses engage with customers 24/7. These intelligent assistants can answer frequently asked questions, guide users through services or products, capture leads, and even book appointments automatically.</p>
+          </div>
+        </div>
+
+        <!-- 02 AI Customer Support Automation -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.2s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/Ai-customer%20suport%20.jpeg" title="AI Customer Support Automation"><img class="ai-card__img" src="assets/img/Ai-img/Ai-customer%20suport%20.jpeg" alt="AI Support automation"><span class="ai-card__img-label">AI Customer Support Automation</span></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 02</div>
+            <div class="ai-card__icon"><i class="fa fa-headset"></i></div>
+            <h3 class="ai-card__title">AI Customer Support Automation</h3>
+            <p class="ai-card__text">AI-powered customer support systems help businesses manage inquiries more efficiently by automatically responding to common questions, sorting support tickets, and prioritizing urgent requests. This allows support teams to focus on complex issues.</p>
+          </div>
+        </div>
+
+        <!-- 03 AI Website Personalization -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.3s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/Ai%20website%20Personationlization%20.jpeg" title="AI Website Personalization"><img class="ai-card__img" src="assets/img/Ai-img/Ai%20website%20Personationlization%20.jpeg" alt="AI Personalization"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 03</div>
+            <div class="ai-card__icon"><i class="fa fa-user-gear"></i></div>
+            <h3 class="ai-card__title">AI Website Personalization</h3>
+            <p class="ai-card__text">AI personalization systems adapt website content based on visitor behavior, location, and preferences. This allows businesses to present tailored product recommendations, relevant services, and personalized offers to each user.</p>
+          </div>
+        </div>
+
+        <!-- 04 AI Marketing Automation -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.1s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/gemini-2.5-flash-image_Clean_modern_marketing_automation_dashboard_interface_displayed_on_a_digital_can-0.jpg.jpeg" title="AI Marketing Automation"><img class="ai-card__img" src="assets/img/Ai-img/gemini-2.5-flash-image_Clean_modern_marketing_automation_dashboard_interface_displayed_on_a_digital_can-0.jpg.jpeg" alt="AI Marketing dashboard"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 04</div>
+            <div class="ai-card__icon"><i class="fa fa-bullseye"></i></div>
+            <h3 class="ai-card__title">AI Marketing Automation</h3>
+            <p class="ai-card__text">AI marketing automation helps businesses run smarter marketing campaigns with less manual effort. These systems can automatically manage email campaigns, audience segmentation, targeted advertising, and performance tracking.</p>
+          </div>
+        </div>
+
+        <!-- 05 AI Content Generation -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.2s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/gpt-image-1.5_Modern_AI_content_generation_interface_displayed_on_a_clean_digital_canvas._The_-0.jpg.jpeg" title="AI Content Generation"><img class="ai-card__img" src="assets/img/Ai-img/gpt-image-1.5_Modern_AI_content_generation_interface_displayed_on_a_clean_digital_canvas._The_-0.jpg.jpeg" alt="AI Content generation"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 05</div>
+            <div class="ai-card__icon"><i class="fa fa-pen-nib"></i></div>
+            <h3 class="ai-card__title">AI Content Generation</h3>
+            <p class="ai-card__text">AI content generation tools assist businesses in creating high-quality written content quickly and efficiently. From blog articles and product descriptions to social media captions and marketing copy, AI produces engaging content that supports marketing strategies.</p>
+          </div>
+        </div>
+
+        <!-- 06 AI Data Analytics Dashboards -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.3s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/gemini-2.5-flash-image_Professional_business_analytics_dashboard_displayed_on_a_clean_digital_interface-0.jpg.jpeg" title="AI Data Analytics Dashboards"><img class="ai-card__img" src="assets/img/Ai-img/gemini-2.5-flash-image_Professional_business_analytics_dashboard_displayed_on_a_clean_digital_interface-0.jpg.jpeg" alt="AI Analytics dashboard"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 06</div>
+            <div class="ai-card__icon"><i class="fa fa-chart-line"></i></div>
+            <h3 class="ai-card__title">AI Data Analytics Dashboards</h3>
+            <p class="ai-card__text">AI analytics dashboards provide businesses with real-time insights into their operations. These dashboards analyze sales trends, customer behavior, marketing performance, and other important metrics with clear visual reports and predictive insights.</p>
+          </div>
+        </div>
+
+        <!-- 07 AI Voice Assistants -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.1s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/Ai-Voice.jpeg" title="AI Voice Assistants"><img class="ai-card__img" src="assets/img/Ai-img/Ai-Voice.jpeg" alt="AI Voice assistant"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 07</div>
+            <div class="ai-card__icon"><i class="fa fa-microphone"></i></div>
+            <h3 class="ai-card__title">AI Voice Assistants</h3>
+            <p class="ai-card__text">AI voice assistants allow users to interact with digital systems using voice commands. These assistants can help customers navigate websites, request information, place orders, or access support services quickly, improving accessibility.</p>
+          </div>
+        </div>
+
+        <!-- 08 AI Lead Generation Systems -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.2s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/gemini-2.5-flash-image_Clean_digital_interface_showing_a_lead_generation_management_system._The_screen_-0.jpg.jpeg" title="AI Lead Generation Systems"><img class="ai-card__img" src="assets/img/Ai-img/gemini-2.5-flash-image_Clean_digital_interface_showing_a_lead_generation_management_system._The_screen_-0.jpg.jpeg" alt="AI Lead generation"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 08</div>
+            <div class="ai-card__icon"><i class="fa fa-magnet"></i></div>
+            <h3 class="ai-card__title">AI Lead Generation Systems</h3>
+            <p class="ai-card__text">AI lead generation systems help businesses capture and manage potential customers more effectively. These systems analyze visitor behavior, automatically collect contact information, and identify high-quality leads with automated follow-ups.</p>
+          </div>
+        </div>
+
+        <!-- 09 AI Social Media Automation -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.3s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/gpt-image-1.5_Clean_social_media_management_dashboard_displayed_on_a_digital_interface_canvas.-0.jpg.jpeg" title="AI Social Media Automation"><img class="ai-card__img" src="assets/img/Ai-img/gpt-image-1.5_Clean_social_media_management_dashboard_displayed_on_a_digital_interface_canvas.-0.jpg.jpeg" alt="AI Social media dashboard"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 09</div>
+            <div class="ai-card__icon"><i class="fa fa-share-nodes"></i></div>
+            <h3 class="ai-card__title">AI Social Media Automation</h3>
+            <p class="ai-card__text">AI social media tools help businesses manage their online presence more efficiently. These systems can schedule posts, analyze audience engagement, track performance, and suggest content ideas while maintaining consistency.</p>
+          </div>
+        </div>
+
+        <!-- 10 AI Image & Design Generation -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.1s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/Ai-image%20%26%20Design%20Generation%20.jpeg" title="AI Image & Design Generation"><img class="ai-card__img" src="assets/img/Ai-img/Ai-image%20%26%20Design%20Generation%20.jpeg" alt="AI Design generation"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 10</div>
+            <div class="ai-card__icon"><i class="fa fa-palette"></i></div>
+            <h3 class="ai-card__title">AI Image &amp; Design Generation</h3>
+            <p class="ai-card__text">AI-powered design tools allow businesses to quickly create visual content such as marketing graphics, advertisements, social media posts, and product mockups. These tools help generate professional designs while reducing turnaround time.</p>
+          </div>
+        </div>
+
+        <!-- 11 AI Business Process Automation -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.2s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/Ai-Business%20Process%20Automation%20.jpeg" title="AI Business Process Automation"><img class="ai-card__img" src="assets/img/Ai-img/Ai-Business%20Process%20Automation%20.jpeg" alt="AI Business automation"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 11</div>
+            <div class="ai-card__icon"><i class="fa fa-gears"></i></div>
+            <h3 class="ai-card__title">AI Business Process Automation</h3>
+            <p class="ai-card__text">AI business automation streamlines repetitive tasks across operations. Document processing, invoice generation, workflow management, and data organization can be automated, allowing teams to focus on higher-value work.</p>
+          </div>
+        </div>
+
+        <!-- 12 AI Recommendation Systems -->
+        <div class="ai-card wow fadeInUp" data-wow-delay="0.3s">
+          <a class="ai-card__img-link" href="assets/img/Ai-img/nano-banana-2_A_modern_futuristic_technology_agency_showcase_for_a_company_called_ELUCEAT_the_-3.jpg.jpeg" title="AI Recommendation Systems"><img class="ai-card__img" src="assets/img/Ai-img/nano-banana-2_A_modern_futuristic_technology_agency_showcase_for_a_company_called_ELUCEAT_the_-3.jpg.jpeg" alt="AI Recommendation system"></a>
+          <div class="ai-card__body">
+            <div class="ai-card__number">Solution 12</div>
+            <div class="ai-card__icon"><i class="fa fa-wand-magic-sparkles"></i></div>
+            <h3 class="ai-card__title">AI Recommendation Systems</h3>
+            <p class="ai-card__text">AI recommendation systems analyze customer behavior and preferences to suggest relevant products or services. These systems display personalized recommendations, helping businesses increase sales and improve customer satisfaction.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="ai-showcase">
+      <div class="ai-section-header">
+        <div class="ai-section-header__tag">See It In Action</div>
+        <h2 class="ai-section-header__title">AI at Work</h2>
+        <p class="ai-section-header__desc">Watch how our solutions transform business operations in real time.</p>
+      </div>
+      <div class="ai-showcase__grid">
+        <div class="ai-showcase__card wow fadeInUp" data-wow-delay="0.1s">
+          <video autoplay muted loop playsinline>
+            <source src="assets/img/Ai-img/aivideo.mp4" type="video/mp4">
+          </video>
+          <div class="ai-showcase__card-body">
+            <h3>Intelligent Automation</h3>
+            <p>AI-driven workflows that handle complex tasks on autopilot.</p>
+          </div>
+        </div>
+        <div class="ai-showcase__card wow fadeInUp" data-wow-delay="0.2s">
+          <video autoplay muted loop playsinline>
+            <source src="assets/img/Ai-img/Aivideo1.mp4" type="video/mp4">
+          </video>
+          <div class="ai-showcase__card-body">
+            <h3>Smart Customer Engagement</h3>
+            <p>Real-time AI interactions that convert visitors into customers.</p>
+          </div>
+        </div>
+        <div class="ai-showcase__card wow fadeInUp" data-wow-delay="0.3s">
+          <video autoplay muted loop playsinline>
+            <source src="assets/img/Ai-img/Aivideo2.mp4" type="video/mp4">
+          </video>
+          <div class="ai-showcase__card-body">
+            <h3>Data-Driven Insights</h3>
+            <p>Visual analytics dashboards powered by machine learning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="ai-featured">
+      <div class="ai-featured__inner">
+        <div class="ai-featured__img-wrap">
+          <img src="assets/img/Ai-img/nano-banana-2_Minimal_professional_website_header_design_for_a_technology_company_called_ELUCE-0.jpg.jpeg" alt="Eluceat AI showcase">
+        </div>
+        <div class="ai-featured__content">
+          <h2>Why Businesses Choose <span>Eluceat AI</span></h2>
+          <p>We don't just build tools — we build intelligent systems tailored to your business goals. Every solution is custom-designed, scalable, and built to deliver measurable results from day one.</p>
+          <ul class="ai-featured__list">
+            <li><i class="fa fa-circle-check"></i> Custom AI solutions tailored to your industry</li>
+            <li><i class="fa fa-circle-check"></i> Seamless integration with existing systems</li>
+            <li><i class="fa fa-circle-check"></i> 24/7 automated customer engagement</li>
+            <li><i class="fa fa-circle-check"></i> Real-time analytics and reporting</li>
+            <li><i class="fa fa-circle-check"></i> Scalable architecture that grows with you</li>
+            <li><i class="fa fa-circle-check"></i> Dedicated support and continuous optimization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ai-cta">
+      <h2>Ready to Transform Your Business?</h2>
+      <p>Let's build your custom AI solution. From concept to deployment, we handle everything.</p>
+      <a href="Contact.html" class="ai-cta-btn">
+        Let's Talk <i class="fa fa-arrow-right"></i>
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
         <div class="row">
-      
-      <!-- Post 2 -->
-      <div class="post swiper-slide">
-        <div class="post__media">
-          <a href="#"><img src="assets/img/work/src5.png" alt="New Look into Our New Bane Brand" /></a>
-        </div>
-        <div class="post__content">
-          <div class="post__meta">
-            <span class="author">By Wesley Hodges</span>
-            <span class="cat"><i class="fa fa-tag"></i> Branding</span>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html#id-2">About Us</a></li>
+              <li><a href="index.html#id-3">Our Services</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
           </div>
-          <h3 class="post__title">
-            <a href="#">New look at your brand t showcase how you can bring your cretivity to life and bring uniqueness to you style  </a>
-          </h3>
-          <p class="post__text">
-            yo have a new upcoming clothing brand, and we are working very hard to get any notice well say less We are the answer 
-          </p>
-          <a class="a-btn style-2" href="#">Read More</a>
-        </div>
-      </div>
-      <!-- End / Post 2 -->
-
-      <!-- Post 3 -->
-      <div class="post swiper-slide">
-        <div class="post__media">
-          <a href="#"><img src="assets/img/work/src7.png"How to Properly Start Trading as a Beginner" /></a>
-        </div>
-        <div class="post__content">
-          <div class="post__meta">
-            <span class="author">By Sipho Ngozo</span>
-            <span class="cat"><i class="fa fa-tag"></i> Forex</span>
+          <div class="footer-col">
+            <h4>Get Help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Software Development</a></li>
+              <li><a href="#">AI Solutions</a></li>
+            </ul>
           </div>
-          <h3 class="post__title">
-            <a href="#">Your brand and products needs a website what are you waiting for ?</a>
-          </h3>
-          <p class="post__text">
-             Do not hasitate to get you creativity out Online is the future and we are Online
-          </p>
-          <a class="a-btn style-2" href="#">Read More</a>
-        </div>
-      </div>
-      <!-- End / Post 3 -->
-
-      <!-- Post 4 -->
-      <div class="post swiper-slide">
-        <div class="post__media">
-          <a href="#"><img src="assets/img/work/src9.png" alt="Mastering the Art of Being Useless" /></a>
-        </div>
-        <div class="post__content">
-          <div class="post__meta">
-            <span class="author">By Lehlohonolo Mokoena</span>
-            <span class="cat"><i class="fa fa-tag"></i> Development</span>
+          <div class="footer-col">
+            <h4>Trending</h4>
+            <ul>
+              <li><a href="#">AI Chatbots</a></li>
+              <li><a href="#">Marketing Automation</a></li>
+              <li><a href="#">Data Analytics</a></li>
+              <li><a href="#">Voice Assistants</a></li>
+            </ul>
           </div>
-          <h3 class="post__title">
-            <a href="#">Be difffernt Be Eluceat</a>
-          </h3>
-          <p class="post__text">
-           Let your products Be known and reach places you can't 
-          </p>
-          <a class="a-btn style-2" href="#">Read More</a>
-        </div>
-      </div>
-      <!-- End / Post 4 -->
-
-      <!-- Post 5 -->
-      <div class="post swiper-slide">
-        <div class="post__media">
-          <a href="#"><img src="assets/img/work/src13.png" alt="Using Intelligent Ways to Lead a Meeting" /></a>
-        </div>
-        <div class="post__content">
-          <div class="post__meta">
-            <span class="author">Blessing Ngozo</span>
-            <span class="cat"><i class="fa fa-tag"></i> People</span>
-          </div>
-          <h3 class="post__title">
-            <a href="#">Using Intelligent Ways to Market yourself and tell people more abou tyour services  </a>
-          </h3>
-          <p class="post__text">
-            Your services are needed but you can't be found lwt us find who needs you 
-          </p>
-          <a class="a-btn style-2" href="#">Read More</a>
-        </div>
-      </div>
-      <!-- End / Post 5 -->
-  </div></div></div>    </div>
-
-
-<!-- End / Blog Posts Container -->
-
-         
-
-      <!-- footer -->
-      <footer class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="footer-col">
-              <h4>company</h4>
-              <ul>
-                <li><a href="#">about us</a></li>
-                <li><a href="#">our services</a></li>
-                <li><a href="#">privacy policy</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>get help</h4>
-              <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Web design</a></li>
-                <li><a href="#">Software Development</a></li>
-                <li><a href="#">Subscribtion services </a></li>
-                
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Trending</h4>
-              <ul>
-                <li><a href="#">Web Developement</a></li>
-                <li><a href="#">Web design </a></li>
-                <li><a href="#">Site Securty </a></li>
-                <li><a href="#">Brand Promoting </a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>follow us</h4>
-              <div class="social-links">
-                <a href="https://www.facebook.com/share/1XJP2hrCru/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://x.com/eluceatcom?s=21"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/eluceatcom?igsh=MWdkamt0anV5Y2w4eA%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/eluceat-eluceat-621a53347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
-              </div>
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="https://www.facebook.com/share/1XJP2hrCru/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/eluceatcom?s=21"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/eluceatcom?igsh=MWdkamt0anV5Y2w4eA%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/eluceat-eluceat-621a53347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
-     </footer>
-      <!-- End / footer -->
+      </div>
+    </footer>
 
+  </div>
 
-    <!-- Vendors-->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-   
-   +-++     <script
-       type="text/javascript"
-      src="assets/vendors/_jquery/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/isotope-layout/isotope.pkgd.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery-one-page/jquery.nav.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.easing/jquery.easing.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/masonry-layout/masonry.pkgd.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/swiper/swiper.jquery.js"
-    ></script>
-    <script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.countTo/jquery.countTo.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/tabs/awe-tabs.js"
-    ></script>
-    <script type="text/javascript" src="assets/vendors/wow/wow.js"></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/jquery.appear/jquery.appear.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/vendors/waterpipe/waterpipe.js"
-    ></script>
-    <!-- App-->
-    <script type="text/javascript" src="assets/js/main.js"></script>
-  </body>
+  <!-- Vendors -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/_jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+  <script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+  <script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
+  <script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
+  <script type="text/javascript" src="assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+  <script type="text/javascript" src="assets/vendors/tabs/awe-tabs.js"></script>
+  <script type="text/javascript" src="assets/vendors/wow/wow.js"></script>
+  <script type="text/javascript" src="assets/vendors/jquery.appear/jquery.appear.js"></script>
+  <script type="text/javascript" src="assets/vendors/waterpipe/waterpipe.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+
+  <script>
+    (function() {
+      var overlay = document.getElementById('imgPopup');
+      var popImg = document.getElementById('imgPopupImg');
+      var popTitle = document.getElementById('imgPopupTitle');
+      var links = document.querySelectorAll('.ai-card__img-link');
+      var items = [];
+      var current = 0;
+
+      links.forEach(function(link, i) {
+        items.push({ src: link.href, title: link.title || '' });
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          current = i;
+          show(current);
+        });
+      });
+
+      function show(idx) {
+        popImg.src = items[idx].src;
+        popTitle.textContent = items[idx].title;
+        overlay.classList.add('active');
+      }
+
+      function hide() {
+        overlay.classList.remove('active');
+      }
+
+      document.getElementById('imgPopupClose').addEventListener('click', hide);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) hide();
+      });
+
+      document.getElementById('imgPopupPrev').addEventListener('click', function(e) {
+        e.stopPropagation();
+        current = (current - 1 + items.length) % items.length;
+        show(current);
+      });
+      document.getElementById('imgPopupNext').addEventListener('click', function(e) {
+        e.stopPropagation();
+        current = (current + 1) % items.length;
+        show(current);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape') hide();
+        if (e.key === 'ArrowLeft') { current = (current - 1 + items.length) % items.length; show(current); }
+        if (e.key === 'ArrowRight') { current = (current + 1) % items.length; show(current); }
+      });
+    })();
+  </script>
+
+  <!-- ElevenLabs Voice Agent -->
+  <elevenlabs-convai agent-id="agent_9201kkp83s15fx6a8ym7st8np7wg"></elevenlabs-convai>
+  <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+</body>
 </html>
