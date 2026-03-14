@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/contact us.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/chatbot.css">
 
 
    
@@ -1199,5 +1200,53 @@
     ></script>
     <!-- App-->
     <script type="text/javascript" src="assets/js/main.js"></script>
+
+    <!-- AI Chatbot Widget -->
+    <!-- Floating toggle button -->
+    <button
+      id="chatbotToggle"
+      class="chatbot-toggle"
+      aria-label="Open AI assistant"
+      aria-expanded="false"
+      aria-controls="chatbotPanel"
+    >
+      <span id="chatbotBadge" class="chatbot-badge" aria-hidden="true">1</span>
+      <i class="fa fa-robot"></i>
+    </button>
+
+    <!-- Side popup chat panel -->
+    <div id="chatbotPanel" class="chatbot-panel" role="dialog" aria-label="AI Assistant" aria-modal="true">
+      <div class="chatbot-header">
+        <div class="chatbot-header-avatar" aria-hidden="true">🤖</div>
+        <div class="chatbot-header-info">
+          <h4>Eluceat AI</h4>
+          <span>Ask me anything about our services</span>
+        </div>
+        <button id="chatbotClose" class="chatbot-close" aria-label="Close AI assistant">&times;</button>
+      </div>
+
+      <div id="chatbotMessages" class="chatbot-messages" aria-live="polite" aria-label="Chat messages">
+        <!-- Welcome message -->
+        <div class="chatbot-message bot">
+          👋 Hi! I'm Eluceat's AI assistant. I can help you with questions about our web design, development, security, and marketing services. How can I help you today?
+        </div>
+      </div>
+
+      <div class="chatbot-input-area">
+        <textarea
+          id="chatbotInput"
+          class="chatbot-input"
+          placeholder="Type your message…"
+          rows="1"
+          aria-label="Chat message input"
+          maxlength="1000"
+        ></textarea>
+        <button id="chatbotSend" class="chatbot-send" aria-label="Send message">
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/chatbot.js"></script>
   </body>
 </html>
