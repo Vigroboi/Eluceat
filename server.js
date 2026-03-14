@@ -1,11 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const OpenAI = require('openai');
 
 if (!process.env.OPENAI_API_KEY) {
     console.error('Error: OPENAI_API_KEY environment variable is not set.');
-    console.error('Copy .env.example to .env and add your OpenAI API key.');
+    console.error('Add your OpenAI API key to the .env file.');
     process.exit(1);
 }
 
@@ -14,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// Serve static site files
+app.use(express.static(path.join(__dirname)));
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -61,5 +65,5 @@ app.post('/api/chat', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Eluceat AI server running on port ${PORT}`);
+    console.log(`Eluceat AI server running on http://localhost:${PORT}`);
 });

@@ -113,12 +113,25 @@
                 body: JSON.stringify({ messages: msgs }),
             })
             .then(function (res) {
-                if (!res.ok) {
-                    return res.json().then(function (data) {
-                        throw new Error(data.error || 'Server error (' + res.status + ')');
-                    });
-                }
-                return res.json();
+                // Read as text first to check for empty or invalid JSON
+                return res.text().then(function (text) {
+                    if (!res.ok) {
+                        let errorMsg = 'Server error (' + res.status + ')';
+                        try {
+                            const data = text ? JSON.parse(text) : {};
+                            errorMsg = data.error || errorMsg;
+                        } catch (e) {}
+                        throw new Error(errorMsg);
+                    }
+                    if (!text) {
+                        throw new Error('Empty response from server.');
+                    }
+                    try {
+                        return JSON.parse(text);
+                    } catch (e) {
+                        throw new Error('Invalid JSON response from server.');
+                    }
+                });
             })
             .then(function (data) {
                 return data.reply;
