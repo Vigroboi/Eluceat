@@ -1208,7 +1208,7 @@
     <!-- Cookie Consent Banner -->
     <style>
       #cookie-banner {
-        display: none;
+        display: block;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -1411,9 +1411,9 @@
         var panel = document.getElementById('cookie-policy-panel');
         var overlay = document.getElementById('cookie-policy-overlay');
 
-        // Show banner if no consent stored
-        if (!localStorage.getItem('cookie-consent')) {
-          banner.style.display = 'block';
+        // Hide banner if consent was already given
+        if (localStorage.getItem('cookie-consent')) {
+          banner.style.display = 'none';
         }
 
         // Accept cookies
